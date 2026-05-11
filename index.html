@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BETTING EXCHANGE ROOM - TUTORIAL</title>
+    <title>BETTING EXCHANGE ROOM</title>
     <link rel="preconnect" href="https://flagcdn.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
@@ -110,6 +110,38 @@
             background-position: right center;
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
             transform: translateY(-2px);
+        }
+
+        /* --- ANIMAZIONE MESSAGGIO ROSSO/VERDE --- */
+        @keyframes pulse-rg {
+            0%, 100% { color: #10B981; transform: scale(1); text-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+            50% { color: #EF4444; transform: scale(1.03); text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
+        }
+        .pulse-rg {
+            animation: pulse-rg 2.5s ease-in-out infinite;
+            font-weight: 800;
+            text-align: center;
+            font-size: 11.5px;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        /* --- EFFETTO PACCO REGALO NEON --- */
+        @keyframes neon-gift {
+            0%, 100% {
+                text-shadow: 0 0 4px rgba(16, 185, 129, 0.4), 0 0 8px rgba(16, 185, 129, 0.2);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 10px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.6), 0 0 30px rgba(16, 185, 129, 0.4);
+                transform: scale(1.15);
+            }
+        }
+        .neon-gift-icon {
+            animation: neon-gift 2.5s ease-in-out infinite;
+            color: #10B981; /* bf-green */
+            display: inline-block;
+            will-change: transform, text-shadow;
         }
 
         /* --- SMARTPHONE SIMULATOR (Fluid) --- */
@@ -226,11 +258,13 @@
 
     <!-- Header Elegante Fisso -->
     <div class="flex flex-col items-center justify-center shrink-0 w-full mb-3">
-        <img src="logo-tondo.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=BE&background=111827&color=D4AF37&rounded=true'" alt="Logo" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-gray-700 shadow-[0_4px_15px_rgba(0,0,0,0.3)] object-cover mb-2">
+        <img src="logo-tondo.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=BE&background=111827&color=D4AF37&rounded=true'" alt="Logo" class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-gray-700 shadow-[0_4px_15px_rgba(0,0,0,0.3)] object-cover mb-2">
         <h1 class="text-[13px] sm:text-[16px] font-bold tracking-[0.2em] text-center text-gray-300 leading-tight">
             BETTING EXCHANGE <span class="text-bf-yellow">ROOM</span>
         </h1>
-        <h2 data-i18n="tutorial_title" class="text-md sm:text-lg font-light text-white tracking-[0.3em] mt-1 opacity-80">TUTORIAL</h2>
+        <div class="mt-2.5">
+            <i class="fa-solid fa-gift text-lg sm:text-xl neon-gift-icon"></i>
+        </div>
     </div>
 
     <!-- Container Dinamico Fluido -->
@@ -633,7 +667,7 @@
                                     <div class="h-[1px] w-full bg-gray-700/50 my-1"></div>
                                     <div class="flex flex-col gap-1">
                                         <span data-i18n="sim_u_to_address" class="text-gray-400 text-[9px]">To Address</span>
-                                        <span class="text-gray-300 font-mono text-[8px] break-all">EQC_BettingExchangeRoom_Official_Address_a1b2</span>
+                                        <span class="text-gray-300 font-mono text-[8px] break-all blur-[3px] select-none pointer-events-none opacity-80">EQC_BettingExchangeRoom_Official_Address_a1b2</span>
                                     </div>
                                 </div>
 
