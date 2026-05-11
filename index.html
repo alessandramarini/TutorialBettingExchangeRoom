@@ -126,20 +126,20 @@
             display: inline-block;
         }
 
-        /* --- EFFETTO PACCO REGALO NEON --- */
-        @keyframes neon-gift {
+        /* --- EFFETTO PACCO REGALO ORO ELEGANTE --- */
+        @keyframes gold-pulse {
             0%, 100% {
-                text-shadow: 0 0 4px rgba(16, 185, 129, 0.4), 0 0 8px rgba(16, 185, 129, 0.2);
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
                 transform: scale(1);
             }
             50% {
-                text-shadow: 0 0 10px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.6), 0 0 30px rgba(16, 185, 129, 0.4);
-                transform: scale(1.15);
+                text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+                transform: scale(1.05);
             }
         }
-        .neon-gift-icon {
-            animation: neon-gift 2.5s ease-in-out infinite;
-            color: #10B981; /* bf-green */
+        .gold-gift-icon {
+            animation: gold-pulse 3s ease-in-out infinite;
+            color: #D4AF37; /* bf-yellow */
             display: inline-block;
             will-change: transform, text-shadow;
         }
@@ -262,9 +262,6 @@
         <h1 class="text-[13px] sm:text-[16px] font-bold tracking-[0.2em] text-center text-gray-300 leading-tight">
             BETTING EXCHANGE <span class="text-bf-yellow">ROOM</span>
         </h1>
-        <div class="mt-2.5">
-            <i class="fa-solid fa-gift text-lg sm:text-xl neon-gift-icon"></i>
-        </div>
     </div>
 
     <!-- Container Dinamico Fluido -->
@@ -273,6 +270,9 @@
         <!-- SCREEN 1: Selezione Lingua -->
         <div id="screen-lang" class="screen active">
             <div class="scroll-container justify-center">
+                <div class="mb-6 flex justify-center">
+                    <i class="fa-solid fa-gift text-4xl sm:text-5xl gold-gift-icon"></i>
+                </div>
                 <h2 data-i18n="select_lang" class="text-center text-gray-400 mb-6 font-semibold uppercase tracking-widest text-xs">Select your language</h2>
                 <div class="grid grid-cols-2 gap-4 w-full">
                     <button onclick="setLanguage('en')" class="flag-btn glass-btn hover:bg-white/5 rounded-2xl p-5 flex flex-col items-center justify-center gap-3">
@@ -730,7 +730,7 @@
                         </div>
                         <div>
                             <h4 data-i18n="sec_usdt_title" class="font-bold text-white text-[13px] mb-1">Cos'è USDT?</h4>
-                            <p data-i18n="sec_usdt_desc" class="text-[12px] text-gray-400 leading-snug">È il "dollaro digitale". 1 USDT vale esattamente 1 Dollaro Americano. È stabile, non oscilla come il Bitcoin, perfetto per gli abbonamenti.</p>
+                            <p data-i18n="sec_usdt_desc" class="text-[12px] text-gray-400 leading-snug">È il "dollaro digitale". 1 USDT vale esattamente 1 Dollaro Americano. È stabile, non oscilla come il Bitcoin, perfeito per gli abbonamenti.</p>
                         </div>
                     </div>
 
