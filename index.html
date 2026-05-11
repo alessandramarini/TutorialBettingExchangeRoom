@@ -97,31 +97,19 @@
             transform: translateY(-2px);
         }
 
-        .btn-premium-green {
-            background: linear-gradient(90deg, #059669 0%, #34D399 50%, #059669 100%);
+        /* Nuovo Bottone Alta Conversione (Deep Sapphire Blue) */
+        .btn-premium-action {
+            background: linear-gradient(90deg, #1E3A8A 0%, #3B82F6 50%, #1E3A8A 100%);
             background-size: 200% auto;
             color: #fff;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        .btn-premium-green:hover, .btn-premium-green:active {
+        .btn-premium-action:hover, .btn-premium-action:active {
             background-position: right center;
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
             transform: translateY(-2px);
-        }
-
-        /* --- ANIMAZIONE MESSAGGIO ROSSO/VERDE --- */
-        @keyframes pulse-rg {
-            0%, 100% { color: #10B981; transform: scale(1); text-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
-            50% { color: #EF4444; transform: scale(1.03); text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
-        }
-        .pulse-rg {
-            animation: pulse-rg 2.5s ease-in-out infinite;
-            font-weight: 800;
-            text-align: center;
-            font-size: 11.5px;
-            letter-spacing: 0.5px;
-            display: inline-block;
         }
 
         /* --- SMARTPHONE SIMULATOR (Fluid) --- */
@@ -333,10 +321,16 @@
                     <!-- Titolo ad Alto Impatto -->
                     <h2 data-i18n="pl_title" class="text-[22px] sm:text-[24px] font-black text-white uppercase text-center leading-tight mb-2 tracking-tight">IL TUO POSTO È RISERVATO!</h2>
                     
-                    <p data-i18n="pl_subtitle" class="text-[13px] text-gray-400 text-center mb-5 font-medium px-2">Completa il pagamento per sbloccare la Premium Room a tariffa bloccata: <span class="text-bf-yellow font-bold">37 USDT/mese</span> <span class="line-through text-gray-600 text-[11px]">(invece di 97)</span></p>
+                    <p data-i18n="pl_subtitle" class="text-[13px] text-gray-400 text-center mb-5 font-medium px-2">
+                        Completa il pagamento per sbloccare la Premium Room a tariffa bloccata:<br>
+                        <span class='block mt-2 flex items-center justify-center gap-2'>
+                            <span class='text-bf-yellow font-black text-[20px]'>37 USDT/mese</span> 
+                            <span class='line-through text-gray-500 text-[12px]'>(invece di 97)</span>
+                        </span>
+                    </p>
                     
                     <!-- Benefit Chiari e Precisi -->
-                    <div class="w-full bg-[#070B14] border border-gray-800 rounded-2xl p-4 mb-5 shadow-inner">
+                    <div class="w-full bg-[#070B14] border border-gray-800 rounded-2xl p-4 mb-6 shadow-inner">
                         <ul class="space-y-3.5 text-[13px] text-gray-200 font-semibold">
                             <li class="flex items-center gap-3">
                                 <div class="w-5 h-5 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> 
@@ -354,14 +348,9 @@
                     </div>
 
                     <!-- CTA Primaria -->
-                    <button onclick="showMockMessage(translations[currentLang]['mock_discount'])" class="w-full btn-premium-green rounded-2xl py-4 text-[16px] font-black flex items-center justify-center gap-2 mb-4">
+                    <button onclick="showMockMessage(translations[currentLang]['mock_discount_text'])" class="w-full btn-premium-action rounded-2xl py-4 text-[16px] font-black flex items-center justify-center gap-2">
                         <i class="fa-solid fa-bolt text-white"></i> <span data-i18n="pay_now">SBLOCCA ACCESSO ORA</span>
                     </button>
-
-                    <!-- Alert link Referente -->
-                    <div data-i18n="pulsing_msg" class="pulse-rg">
-                        Richiedi il link SCONTO al tuo referente o vai su www.bettingexchangeroom.com
-                    </div>
                 </div>
 
                 <!-- Box Tutorial Distinto -->
@@ -376,14 +365,14 @@
                         <button onclick="openTutorial('wallet')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95">
                             <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[13px] border border-gray-700 shadow-inner"><i class="fa-solid fa-1"></i></div>
                             <div>
-                                <div data-i18n="how_wallet_title" class="text-[12px] font-bold text-gray-100">Crea il Wallet</div>
+                                <div data-i18n="how_wallet_title" class="text-[12px] font-bold text-tg-blue">Crea il Wallet</div>
                                 <div data-i18n="how_wallet_sub" class="text-[10px] text-gray-500 mt-0.5 font-medium">Richiede 1 minuto</div>
                             </div>
                         </button>
                         <button onclick="openTutorial('usdt')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95">
                             <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[13px] border border-gray-700 shadow-inner"><i class="fa-solid fa-2"></i></div>
                             <div>
-                                <div data-i18n="how_usdt_title" class="text-[12px] font-bold text-gray-100">Compra USDT</div>
+                                <div data-i18n="how_usdt_title" class="text-[12px] font-bold text-tg-blue">Compra USDT</div>
                                 <div data-i18n="how_usdt_sub" class="text-[10px] text-gray-500 mt-0.5 font-medium">Guida passo passo</div>
                             </div>
                         </button>
@@ -739,15 +728,22 @@
         </div>
     </div>
 
-    <!-- Mock Modal -->
+    <!-- Mock Modal Aggiornato (Sito Ufficiale) -->
     <div id="mock-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-        <div class="bg-panel-bg border border-gray-800 rounded-2xl p-6 w-full max-w-sm text-center shadow-2xl modal-enter">
-            <div class="w-14 h-14 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center mx-auto mb-4 border border-red-500/30">
-                <i class="fa-solid fa-lock text-2xl"></i>
+        <div class="bg-panel-bg border border-gray-700 rounded-3xl p-6 w-full max-w-sm text-center shadow-[0_15px_50px_rgba(0,0,0,0.6)] modal-enter relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-600 to-blue-400"></div>
+            
+            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto mb-4 border border-blue-500/20">
+                <i class="fa-solid fa-info-circle text-xl"></i>
             </div>
-            <h3 class="text-[18px] font-bold text-white mb-2" data-i18n="mock_title">ATTENZIONE</h3>
-            <p id="mock-text" class="text-[14px] font-medium mb-6 text-gray-300 leading-relaxed">Messaggio</p>
-            <button onclick="closeMockModal()" class="w-full btn-premium-green py-3.5 rounded-xl font-bold text-sm transition-transform active:scale-95"><span data-i18n="close">Ho Capito</span></button>
+            
+            <p id="mock-text" class="text-[15px] font-medium mb-6 text-gray-200 leading-snug"></p>
+            
+            <a href="https://www.bettingexchangeroom.com" target="_blank" class="w-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#1e40af] hover:to-[#60a5fa] text-white py-3.5 rounded-xl font-bold text-[14px] flex items-center justify-center gap-2 transition-all shadow-[0_5px_15px_rgba(59,130,246,0.3)] mb-3 active:scale-95">
+                <i class="fa-solid fa-globe"></i> <span data-i18n="mock_discount_btn">SITO UFFICIALE</span>
+            </a>
+            
+            <button onclick="closeMockModal()" class="text-gray-500 hover:text-white transition-colors text-[12px] font-medium underline underline-offset-4 p-2"><span data-i18n="close">Chiudi</span></button>
         </div>
     </div>
 
@@ -765,15 +761,14 @@
                 
                 pl_badge: "SPOT RESERVED",
                 pl_title: "YOUR SPOT IS RESERVED!",
-                pl_subtitle: "Complete payment to unlock the Premium Room at the locked rate: <span class='text-bf-yellow font-bold'>37 USDT/mo</span> <span class='line-through text-gray-600 text-[11px]'>(instead of 97)</span>",
+                pl_subtitle: "Complete payment to unlock the Premium Room at the locked rate:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mo</span> <span class='line-through text-gray-500 text-[12px]'>(instead of 97)</span></span>",
                 vp_1: "Instant Access to the Premium Room",
                 vp_2: "High-Precision Trading Signals",
                 vp_3: "No lock-in contract, cancel anytime",
                 pl_timer_text: "Link expires in:",
                 pay_now: "UNLOCK ACCESS NOW",
-                pulsing_msg: "Request the DISCOUNT link from your referrer or go to www.bettingexchangeroom.com",
-                mock_discount: "Request the DISCOUNT link from your referrer or go to www.bettingexchangeroom.com",
-                mock_title: "ATTENTION",
+                mock_discount_text: "ASK YOUR REFERRER FOR THE DISCOUNT LINK<br>or visit the website",
+                mock_discount_btn: "OFFICIAL WEBSITE",
 
                 new_to_crypto: "First crypto payment?",
                 how_wallet_title: "Create Wallet",
@@ -790,7 +785,7 @@
                 prev: "Prev",
                 next: "Next",
                 done: "Done",
-                close: "I Understand",
+                close: "Close",
                 close_understood: "I understand, close",
                 sec_title: "Security & Crypto Info",
                 sec_lock_title: "Global Web 3.0 Payments",
@@ -863,15 +858,14 @@
                 
                 pl_badge: "POSTO RISERVATO",
                 pl_title: "IL TUO POSTO È RISERVATO!",
-                pl_subtitle: "Completa il pagamento per sbloccare la Premium Room a tariffa bloccata: <span class='text-bf-yellow font-bold'>37 USDT/mese</span> <span class='line-through text-gray-600 text-[11px]'>(invece di 97)</span>",
+                pl_subtitle: "Completa il pagamento per sbloccare la Premium Room a tariffa bloccata:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mese</span> <span class='line-through text-gray-500 text-[12px]'>(invece di 97)</span></span>",
                 vp_1: "Accesso Immediato alla Premium Room",
                 vp_2: "Segnali Operativi ad Alta Precisione",
                 vp_3: "Nessun vincolo, disdici quando vuoi",
                 pl_timer_text: "Il link scade tra:",
                 pay_now: "SBLOCCA ACCESSO ORA",
-                pulsing_msg: "Richiedi il link SCONTO al tuo referente o vai su www.bettingexchangeroom.com",
-                mock_discount: "Richiedi il link SCONTO al tuo referente o vai su www.bettingexchangeroom.com",
-                mock_title: "ATTENZIONE",
+                mock_discount_text: "CHIEDI IL LINK SCONTO AL TUO REFERENTE<br>o vai sul sito",
+                mock_discount_btn: "SITO UFFICIALE",
 
                 new_to_crypto: "Primo pagamento in crypto?",
                 how_wallet_title: "Crea il Wallet",
@@ -888,7 +882,7 @@
                 prev: "Prec",
                 next: "Avanti",
                 done: "Finito",
-                close: "Ho Capito",
+                close: "Chiudi",
                 close_understood: "Ho capito, chiudi",
                 sec_title: "Info Sicurezza",
                 sec_lock_title: "Pagamenti Globali Web 3.0",
@@ -961,15 +955,14 @@
                 
                 pl_badge: "CUPO RESERVADO",
                 pl_title: "¡TU CUPO ESTÁ RESERVADO!",
-                pl_subtitle: "Completa el pago para desbloquear la Premium Room a tarifa bloqueada: <span class='text-bf-yellow font-bold'>37 USDT/mes</span> <span class='line-through text-gray-600 text-[11px]'>(en lugar de 97)</span>",
+                pl_subtitle: "Completa el pago para desbloquear la Premium Room a tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mes</span> <span class='line-through text-gray-500 text-[12px]'>(en lugar de 97)</span></span>",
                 vp_1: "Acceso inmediato a la Premium Room",
                 vp_2: "Señales de Trading de Alta Precisión",
                 vp_3: "Sin permanencia, cancela cuando quieras",
                 pl_timer_text: "El enlace expira en:",
                 pay_now: "DESBLOQUEAR ACCESO AHORA",
-                pulsing_msg: "Solicita el enlace de DESCUENTO a tu referente o ve a www.bettingexchangeroom.com",
-                mock_discount: "Solicita el enlace de DESCUENTO a tu referente o ve a www.bettingexchangeroom.com",
-                mock_title: "ATENCIÓN",
+                mock_discount_text: "PIDE EL ENLACE DE DESCUENTO A TU REFERENTE<br>o ve al sitio",
+                mock_discount_btn: "SITIO OFICIAL",
 
                 new_to_crypto: "¿Primer pago en cripto?",
                 how_wallet_title: "Crea tu Wallet",
@@ -986,7 +979,7 @@
                 prev: "Ant",
                 next: "Sig",
                 done: "Hecho",
-                close: "Entendido",
+                close: "Cerrar",
                 close_understood: "Entendido, cerrar",
                 sec_title: "Info de Seguridad",
                 sec_lock_title: "Pagos Globales Web 3.0",
@@ -1059,15 +1052,14 @@
                 
                 pl_badge: "VAGA RESERVADA",
                 pl_title: "SUA VAGA ESTÁ RESERVADA!",
-                pl_subtitle: "Conclua o pagamento para desbloquear a Premium Room com tarifa bloqueada: <span class='text-bf-yellow font-bold'>37 USDT/mês</span> <span class='line-through text-gray-600 text-[11px]'>(em vez de 97)</span>",
+                pl_subtitle: "Conclua o pagamento para desbloquear a Premium Room com tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mês</span> <span class='line-through text-gray-500 text-[12px]'>(em vez de 97)</span></span>",
                 vp_1: "Acesso Imediato à Premium Room",
                 vp_2: "Sinais de Trading de Alta Precisão",
                 vp_3: "Sem fidelidade, cancele quando quiser",
                 pl_timer_text: "O link expira em:",
                 pay_now: "DESBLOQUEAR ACESSO AGORA",
-                pulsing_msg: "Solicite o link de DESCONTO ao seu referente ou acesse www.bettingexchangeroom.com",
-                mock_discount: "Solicite o link de DESCONTO ao seu referente ou acesse www.bettingexchangeroom.com",
-                mock_title: "ATENÇÃO",
+                mock_discount_text: "PEÇA O LINK DE DESCONTO AO SEU REFERENTE<br>ou acesse o site",
+                mock_discount_btn: "SITE OFICIAL",
 
                 new_to_crypto: "Primeiro pagamento em cripto?",
                 how_wallet_title: "Crie a Carteira",
@@ -1084,7 +1076,7 @@
                 prev: "Ant",
                 next: "Próx",
                 done: "Feito",
-                close: "Entendi",
+                close: "Fechar",
                 close_understood: "Entendi, fechar",
                 sec_title: "Info de Segurança",
                 sec_lock_title: "Pagamentos Globais Web 3.0",
@@ -1300,7 +1292,6 @@
 
         function showMockMessage(text) {
             document.getElementById('mock-text').innerHTML = text;
-            document.getElementById('mock-title').innerHTML = translations[currentLang]['mock_title'];
             document.getElementById('mock-modal').classList.remove('hidden');
             document.getElementById('mock-modal').classList.add('flex');
         }
