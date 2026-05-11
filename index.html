@@ -100,20 +100,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- ANIMAZIONE MESSAGGIO ROSSO/VERDE --- */
-        @keyframes pulse-rg {
-            0%, 100% { color: #10B981; transform: scale(1); text-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
-            50% { color: #EF4444; transform: scale(1.03); text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
-        }
-        .pulse-rg {
-            animation: pulse-rg 2.5s ease-in-out infinite;
-            font-weight: 800;
-            text-align: center;
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            display: inline-block;
-        }
-
         /* --- SMARTPHONE SIMULATOR (Fully Responsive) --- */
         .sim-phone {
             flex: 1 1 0%;
@@ -276,7 +262,6 @@
                     <span class="text-xl sm:text-2xl text-red-400/70 line-through font-semibold">97 USDT</span>
                 </div>
                 
-                <!-- Struttura prezzo ad alta leggibilità -->
                 <div class="flex items-baseline justify-center mb-2">
                     <span class="text-6xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FCEABB] to-[#F8B500] tracking-tighter drop-shadow-sm">37</span>
                     <span class="text-2xl sm:text-3xl text-white font-bold ml-2">USDT</span>
@@ -302,65 +287,64 @@
 
         <!-- SCREEN 3: Pagamento Alta Conversione -->
         <div id="screen-payment" class="screen">
-            <div class="bg-panel-bg rounded-3xl p-5 w-full border border-gray-800 shadow-2xl text-center relative mb-4 flex flex-col shrink-0 overflow-y-auto no-scrollbar">
+            <div class="bg-gradient-to-b from-panel-bg to-dark-bg rounded-3xl p-4 sm:p-5 w-full border border-gray-700 shadow-[0_0_50px_rgba(212,175,55,0.05)] text-center relative mb-3 flex flex-col shrink-0 flex-1 justify-center max-h-[58vh] overflow-y-auto no-scrollbar">
                 
-                <div class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-bf-yellow/20 to-transparent rounded-full mx-auto mb-3 border border-bf-yellow/30 shrink-0">
-                    <i class="fa-solid fa-crown text-2xl text-bf-yellow"></i>
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bf-yellow to-transparent opacity-40"></div>
+                
+                <div class="flex items-center justify-center mb-2">
+                    <i class="fa-solid fa-crown text-3xl text-bf-yellow drop-shadow-[0_0_10px_rgba(212,175,55,0.6)]"></i>
                 </div>
                 
-                <h2 data-i18n="pl_title" class="text-[20px] font-black mb-4 text-white uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">ACCESSO PREMIUM PRONTO!</h2>
+                <h2 data-i18n="pl_title" class="text-[20px] sm:text-[22px] font-black mb-1 text-white uppercase tracking-tight leading-none drop-shadow-md">ACCESSO PREMIUM PRONTO!</h2>
+                <div class="text-bf-yellow text-[11px] sm:text-[12px] font-bold tracking-widest uppercase mb-4" data-i18n="pl_subtitle_short">Tariffa 37 USDT Bloccata</div>
                 
-                <div class="bg-dark-bg/80 border border-gray-700/50 rounded-xl p-4 mb-4 text-left shrink-0 backdrop-blur-sm">
-                    <ul class="space-y-3.5 text-[12px] text-gray-200 font-medium">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-bf-green text-base mt-0.5 shadow-sm"></i> <span data-i18n="vp_1" class="leading-tight">Accesso immediato alla Premium Room</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-bf-green text-base mt-0.5 shadow-sm"></i> <span data-i18n="vp_2" class="leading-tight">Segnali Operativi ad Alta Precisione</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-bf-green text-base mt-0.5 shadow-sm"></i> <span data-i18n="vp_3" class="leading-tight">Nessun vincolo, disdici quando vuoi</span></li>
+                <div class="bg-black/40 border border-gray-700/50 rounded-2xl p-4 mb-5 text-left w-full mx-auto backdrop-blur-md shrink-0">
+                    <ul class="space-y-3.5 text-[12px] sm:text-[13px] text-gray-200 font-semibold">
+                        <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-bf-green/20 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> <span data-i18n="vp_1">Accesso immediato alla Premium Room</span></li>
+                        <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-bf-green/20 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> <span data-i18n="vp_2">Segnali Operativi ad Alta Precisione</span></li>
+                        <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-bf-green/20 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> <span data-i18n="vp_3">Nessun vincolo, disdici quando vuoi</span></li>
                     </ul>
                 </div>
 
-                <div class="flex items-center justify-between bg-gray-800/30 border border-gray-700 rounded-lg p-3 mb-4 shrink-0">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-regular fa-clock text-gray-400 text-sm animate-pulse"></i>
-                        <span data-i18n="pl_timer_text" class="text-[10px] text-gray-400 uppercase font-semibold tracking-wider">Il link scade tra:</span>
-                    </div>
-                    <div id="payment-timer" class="text-xl font-mono font-bold text-white tracking-widest">59:59</div>
+                <div class="flex flex-col items-center justify-center mb-5 shrink-0">
+                    <span data-i18n="pl_timer_text" class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1 flex items-center gap-1.5"><i class="fa-regular fa-clock text-bf-pink animate-pulse"></i> Il link scade tra:</span>
+                    <div id="payment-timer" class="text-2xl sm:text-3xl font-mono font-black text-white tracking-widest drop-shadow-md">59:59</div>
                 </div>
 
-                <button onclick="showMockMessage(translations[currentLang]['mock_opening'])" class="w-full btn-premium-green rounded-xl py-4 text-[15px] font-black flex items-center justify-center gap-2 shrink-0">
-                    <i class="fa-solid fa-bolt text-white/90 text-lg"></i> <span data-i18n="pay_now">COMPLETA L'ACCESSO ORA</span>
+                <button onclick="showMockMessage(translations[currentLang]['mock_discount'])" class="w-full btn-premium-green rounded-2xl py-4 text-[15px] sm:text-[17px] font-black flex items-center justify-center gap-2 shrink-0 shadow-[0_10px_30px_rgba(16,185,129,0.3)] transform transition active:scale-95">
+                    <i class="fa-solid fa-unlock-keyhole text-white/90"></i> <span data-i18n="pay_now">COMPLETA L'ACCESSO ORA</span>
                 </button>
-
-                <p data-i18n="pulsing_msg" class="pulse-rg mt-3.5 leading-tight">
-                    Richiedi il link sconto al tuo referente o vai su www.bettingexchangeroom.com
-                </p>
             </div>
 
-            <!-- Area Tutorial Sobria -->
-            <div class="w-full flex flex-col items-center shrink-0 px-1">
-                <div class="flex items-center gap-3 w-full mb-3">
-                    <div class="h-px bg-gray-800 flex-1"></div>
-                    <span data-i18n="new_to_crypto" class="text-[10px] text-gray-500 font-semibold uppercase tracking-widest">NUOVO NEL MONDO CRYPTO?</span>
-                    <div class="h-px bg-gray-800 flex-1"></div>
+            <!-- Area Tutorial IN EVIDENZA -->
+            <div class="w-full bg-gradient-to-b from-blue-900/30 to-transparent border border-blue-500/40 rounded-3xl p-3 sm:p-4 shrink-0 flex flex-col items-center relative overflow-hidden shadow-lg mt-1">
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+                <div class="flex items-center gap-2 mb-3 relative z-10 w-full justify-center">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                    </span>
+                    <span data-i18n="new_to_crypto" class="text-[11px] text-blue-300 font-bold uppercase tracking-widest drop-shadow-sm">NUOVO NEL MONDO CRYPTO?</span>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-3 w-full">
-                    <button onclick="openTutorial('wallet')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3 rounded-xl flex items-center gap-3 transition-colors text-left border border-gray-800">
-                        <div class="w-7 h-7 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-gray-400 font-medium text-[11px]">1</div>
-                        <div>
-                            <div data-i18n="how_wallet_title" class="text-[11px] font-semibold text-gray-200">Crea il Wallet</div>
-                            <div data-i18n="how_wallet_sub" class="text-[9px] text-gray-500 mt-0.5">Richiede 1 minuto</div>
+                <div class="flex flex-col sm:flex-row gap-2.5 w-full relative z-10">
+                    <button onclick="openTutorial('wallet')" class="flex-1 bg-black/50 hover:bg-white/10 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-all border border-blue-500/20 shadow-sm active:scale-95">
+                        <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0 text-blue-400 font-black text-[12px]"><i class="fa-solid fa-1"></i></div>
+                        <div class="text-left">
+                            <div data-i18n="how_wallet_title" class="text-[11px] sm:text-[12px] font-bold text-white leading-tight">Crea il Wallet</div>
+                            <div data-i18n="how_wallet_sub" class="text-[9px] sm:text-[10px] text-blue-200/70 mt-0.5 leading-tight">Richiede 1 minuto</div>
                         </div>
                     </button>
-                    <button onclick="openTutorial('usdt')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3 rounded-xl flex items-center gap-3 transition-colors text-left border border-gray-800">
-                        <div class="w-7 h-7 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-gray-400 font-medium text-[11px]">2</div>
-                        <div>
-                            <div data-i18n="how_usdt_title" class="text-[11px] font-semibold text-gray-200">Compra USDT</div>
-                            <div data-i18n="how_usdt_sub" class="text-[9px] text-gray-500 mt-0.5">Guida passo passo</div>
+                    <button onclick="openTutorial('usdt')" class="flex-1 bg-black/50 hover:bg-white/10 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-all border border-blue-500/20 shadow-sm active:scale-95">
+                        <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0 text-blue-400 font-black text-[12px]"><i class="fa-solid fa-2"></i></div>
+                        <div class="text-left">
+                            <div data-i18n="how_usdt_title" class="text-[11px] sm:text-[12px] font-bold text-white leading-tight">Compra USDT</div>
+                            <div data-i18n="how_usdt_sub" class="text-[9px] sm:text-[10px] text-blue-200/70 mt-0.5 leading-tight">Guida passo passo</div>
                         </div>
                     </button>
                 </div>
-                <button onclick="openSecurityModal()" class="mt-4 text-gray-500 hover:text-gray-300 transition-colors text-[10px] flex items-center gap-2 font-medium">
-                    <i class="fa-solid fa-shield-halved opacity-70"></i> <span data-i18n="sec_btn" class="underline underline-offset-4">Cos'è il Gas (TON), USDT e la Sicurezza?</span>
+                <button onclick="openSecurityModal()" class="mt-3.5 text-blue-300/80 hover:text-blue-100 transition-colors text-[10px] sm:text-[11px] flex items-center gap-1.5 font-semibold relative z-10">
+                    <i class="fa-solid fa-shield-halved"></i> <span data-i18n="sec_btn" class="underline underline-offset-2">Cos'è il Gas (TON), USDT e la Sicurezza?</span>
                 </button>
             </div>
         </div>
@@ -429,16 +413,18 @@
                 </div>
 
                 <div id="sim-tw-4" class="sim-screen">
-                    <div class="bg-tg-panel px-3 py-2 flex justify-center z-10 border-b border-gray-800 shrink-0">
-                        <div data-i18n="sim_w_ready" class="text-white text-[12px] font-semibold">Ready!</div>
+                    <div class="bg-tg-panel px-3 py-3 flex justify-center z-10 border-b border-gray-800 shrink-0 shadow-md">
+                        <div data-i18n="sim_w_ready" class="text-white text-[13px] font-bold tracking-wide">Ready!</div>
                     </div>
-                    <div class="flex-1 p-4 flex flex-col items-center justify-center gap-4 mt-1 min-h-0 overflow-y-auto no-scrollbar relative">
-                        <div class="absolute inset-0 bg-gradient-to-b from-tg-blue/10 to-transparent pointer-events-none"></div>
-                        <div class="w-16 h-16 bg-tg-blue rounded-full flex items-center justify-center text-white text-3xl shadow-[0_0_25px_rgba(51,144,236,0.5)] mb-2 relative z-10">
+                    <div class="flex-1 p-5 flex flex-col items-center justify-center mt-1 min-h-0 relative bg-gradient-to-b from-[#1c242f] to-[#0f1621] overflow-y-auto no-scrollbar">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#3390ec] to-[#1c74d4] rounded-[22px] flex items-center justify-center text-white text-4xl shadow-[0_10px_30px_rgba(51,144,236,0.3)] mb-6 transform rotate-3 hover:rotate-0 transition-transform shrink-0 border border-blue-400/20">
                             <i class="fa-brands fa-telegram"></i>
                         </div>
-                        <a href="https://t.me/wallet" target="_blank" class="bg-tg-blue hover:bg-blue-500 active:scale-95 transition-all w-full py-3.5 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-[13px] shadow-lg relative z-10">
-                            <span data-i18n="tw_btn_open">Open your wallet now</span> <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+                        <h3 data-i18n="sim_w_done_title" class="text-white text-[16px] font-bold mb-2">Setup Complete</h3>
+                        <p data-i18n="sim_w_done_desc" class="text-gray-400 text-[12px] text-center mb-8 px-2 leading-relaxed">You have successfully backed up your wallet. Keep your phrase safe.</p>
+                        
+                        <a href="https://t.me/wallet" target="_blank" class="w-full bg-[#2AABEE] hover:bg-[#2298D6] active:scale-95 transition-all py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-white font-bold text-[14px] shadow-[0_5px_15px_rgba(42,171,238,0.2)] shrink-0">
+                            <i class="fa-solid fa-wallet text-[12px]"></i> <span data-i18n="tw_btn_open">Open Telegram Wallet</span>
                         </a>
                     </div>
                 </div>
@@ -708,8 +694,8 @@
             <div class="w-12 h-12 rounded-full bg-gray-800 text-white flex items-center justify-center mx-auto mb-3 border border-gray-700">
                 <i class="fa-solid fa-info text-xl"></i>
             </div>
-            <p id="mock-text" class="text-[13px] font-medium mb-5 text-gray-300 leading-snug">Messaggio</p>
-            <button onclick="closeMockModal()" class="w-full bg-white text-black py-2.5 rounded-xl font-semibold text-sm transition-transform active:scale-95"><span data-i18n="close">Chiudi</span></button>
+            <p id="mock-text" class="text-[14px] font-semibold mb-6 text-gray-200 leading-snug">Messaggio</p>
+            <button onclick="closeMockModal()" class="w-full bg-white text-black py-2.5 rounded-xl font-bold text-sm transition-transform active:scale-95"><span data-i18n="close">Chiudi</span></button>
         </div>
     </div>
 
@@ -726,12 +712,13 @@
                 no_payment: "No immediate charge. Limited spots.",
                 
                 pl_title: "PREMIUM ACCESS READY!",
+                pl_subtitle_short: "Rate 37 USDT Locked",
                 vp_1: "Instant access to the Premium Room",
                 vp_2: "High-Precision Trading Signals",
                 vp_3: "No lock-in, cancel anytime",
                 pl_timer_text: "Link expires in:",
                 pay_now: "COMPLETE ACCESS NOW",
-                pulsing_msg: "Request the discount link from your referrer or go to www.bettingexchangeroom.com",
+                mock_discount: "Request the DISCOUNT link from your referrer or go to www.bettingexchangeroom.com",
 
                 new_to_crypto: "NEW TO CRYPTO?",
                 how_wallet_title: "Create Wallet",
@@ -768,6 +755,8 @@
                 sim_w_write: "Write down these 24 words in the exact order.",
                 sim_w_saved: "I saved them",
                 sim_w_ready: "Ready!",
+                sim_w_done_title: "Setup Complete",
+                sim_w_done_desc: "You have successfully backed up your wallet. Keep your phrase safe.",
                 sim_u_total: "Total Balance",
                 sim_u_add: "Add Crypto",
                 sim_u_send: "Send",
@@ -783,7 +772,6 @@
                 sim_u_network_fee: "Network Fee",
                 sim_u_to_address: "To Address",
                 sim_u_confirm_pay: "Confirm Payment",
-                mock_opening: "Opening TON Connect for transaction approval...",
 
                 tw_t1: "1. Open @wallet",
                 tw_d1: "Search for <b>@wallet</b> in the top Telegram search bar. Click <b>Start</b> and then press the <b>Open Wallet</b> button or type in your browser: <a href='https://t.me/wallet' target='_blank' class='text-tg-blue underline'>https://t.me/wallet</a>.",
@@ -793,7 +781,7 @@
                 tw_d3: "Choose manual backup. You will see <b>24 secret words</b>. Write them on paper in order! No screenshots, they recover your funds if you lose your phone.",
                 tw_t4: "4. Open Wallet",
                 tw_d4: "Now that you understand how it works, open your official Telegram Wallet to proceed.",
-                tw_btn_open: "Open your wallet now",
+                tw_btn_open: "Open Telegram Wallet",
                 
                 tu_t1: "1. Add Crypto",
                 tu_d1: "On the main screen of your new Wallet, click the <b>Add Crypto</b> button.",
@@ -819,12 +807,13 @@
                 no_payment: "Nessun addebito immediato. Posti limitati.",
                 
                 pl_title: "ACCESSO PREMIUM PRONTO!",
+                pl_subtitle_short: "Tariffa 37 USDT Bloccata",
                 vp_1: "Accesso immediato alla Premium Room",
                 vp_2: "Segnali Operativi ad Alta Precisione",
                 vp_3: "Nessun vincolo, disdici quando vuoi",
                 pl_timer_text: "Il link scade tra:",
                 pay_now: "COMPLETA L'ACCESSO ORA",
-                pulsing_msg: "Richiedi il link sconto al tuo referente o vai su www.bettingexchangeroom.com",
+                mock_discount: "Richiedi il link SCONTO al tuo referente o vai su www.bettingexchangeroom.com",
 
                 new_to_crypto: "NUOVO NEL MONDO CRYPTO?",
                 how_wallet_title: "Crea il Wallet",
@@ -861,6 +850,8 @@
                 sim_w_write: "Trascrivi queste 24 parole nell'ordine esatto.",
                 sim_w_saved: "Le ho salvate",
                 sim_w_ready: "Pronto!",
+                sim_w_done_title: "Configurazione Completata",
+                sim_w_done_desc: "Hai salvato correttamente il wallet. Custodisci la frase al sicuro.",
                 sim_u_total: "Saldo Totale",
                 sim_u_add: "Aggiungi Crypto",
                 sim_u_send: "Invia",
@@ -876,7 +867,6 @@
                 sim_u_network_fee: "Costo di Rete",
                 sim_u_to_address: "Indirizzo Destinatario",
                 sim_u_confirm_pay: "Conferma Pagamento",
-                mock_opening: "Apertura TON Connect per approvazione transazione...",
 
                 tw_t1: "1. Apri @wallet",
                 tw_d1: "Cerca <b>@wallet</b> nella barra di ricerca in alto. Clicca <b>Avvia</b> e poi premi sul pulsante <b>Open Wallet</b> o digita sul browser: <a href='https://t.me/wallet' target='_blank' class='text-tg-blue underline'>https://t.me/wallet</a>.",
@@ -886,7 +876,7 @@
                 tw_d3: "Fai il backup manuale. Ti verranno mostrate <b>24 parole segrete</b>. Scrivile su carta in ordine! Non fare screenshot, servono a recuperare i soldi se perdi il telefono.",
                 tw_t4: "4. Apri il Wallet",
                 tw_d4: "Ora che hai capito come funziona, apri il tuo Wallet ufficiale su Telegram per procedere.",
-                tw_btn_open: "Apri il tuo Wallet adesso",
+                tw_btn_open: "Apri il Wallet Telegram",
                 
                 tu_t1: "1. Aggiungi Crypto",
                 tu_d1: "Nella schermata principale del tuo Wallet, clicca sul pulsante <b>Add Crypto</b>.",
@@ -912,12 +902,13 @@
                 no_payment: "Sin cargo inmediato. Cupos limitados.",
                 
                 pl_title: "¡ACCESO PREMIUM LISTO!",
+                pl_subtitle_short: "Tarifa 37 USDT Bloqueada",
                 vp_1: "Acceso inmediato a la Premium Room",
                 vp_2: "Señales de Trading de Alta Precisión",
                 vp_3: "Sin permanencia, cancela cuando quieras",
                 pl_timer_text: "El enlace expira en:",
                 pay_now: "COMPLETAR ACCESO AHORA",
-                pulsing_msg: "Solicita el enlace de descuento a tu referente o ve a www.bettingexchangeroom.com",
+                mock_discount: "Solicita el enlace de DESCUENTO a tu referente o ve a www.bettingexchangeroom.com",
 
                 new_to_crypto: "¿NUEVO EN CRIPTO?",
                 how_wallet_title: "Crea tu Wallet",
@@ -954,6 +945,8 @@
                 sim_w_write: "Escribe estas 24 palabras en el orden exacto.",
                 sim_w_saved: "Las he guardado",
                 sim_w_ready: "¡Listo!",
+                sim_w_done_title: "Configuración Completa",
+                sim_w_done_desc: "Has guardado correctamente tu wallet. Mantén tu frase segura.",
                 sim_u_total: "Saldo Total",
                 sim_u_add: "Añadir Cripto",
                 sim_u_send: "Enviar",
@@ -969,7 +962,6 @@
                 sim_u_network_fee: "Tarifa de Red",
                 sim_u_to_address: "Dirección de destino",
                 sim_u_confirm_pay: "Confirmar Pago",
-                mock_opening: "Abriendo TON Connect para la aprobación de la transacción...",
 
                 tw_t1: "1. Abre @wallet",
                 tw_d1: "Busca <b>@wallet</b> en la barra de búsqueda superior. Haz clic en <b>Iniciar</b> y luego en el botón <b>Open Wallet</b> o escribe en tu navegador: <a href='https://t.me/wallet' target='_blank' class='text-tg-blue underline'>https://t.me/wallet</a>.",
@@ -979,7 +971,7 @@
                 tw_d3: "Elige respaldo manual. Verás <b>24 palabras secretas</b>. ¡Escríbelas en papel en orden! No capturas de pantalla, recuperan tus fondos si pierdes el teléfono.",
                 tw_t4: "4. Abrir Wallet",
                 tw_d4: "Ahora que entiendes cómo funciona, abre tu Wallet oficial en Telegram para proceder.",
-                tw_btn_open: "Abre tu wallet ahora",
+                tw_btn_open: "Abrir Telegram Wallet",
                 
                 tu_t1: "1. Añadir Cripto",
                 tu_d1: "En la pantalla principal de tu nueva Wallet, haz clic en el botón <b>Add Crypto</b>.",
@@ -1005,12 +997,13 @@
                 no_payment: "Sem cobrança imediata. Vagas limitadas.",
                 
                 pl_title: "ACESSO PREMIUM PRONTO!",
+                pl_subtitle_short: "Tarifa 37 USDT Bloqueada",
                 vp_1: "Acesso Imediato à Premium Room",
                 vp_2: "Sinais de Trading de Alta Precisão",
                 vp_3: "Sem fidelidade, cancele quando quiser",
                 pl_timer_text: "O link expira em:",
                 pay_now: "CONCLUIR ACESSO AGORA",
-                pulsing_msg: "Solicite o link de desconto ao seu referente ou acesse www.bettingexchangeroom.com",
+                mock_discount: "Solicite o link de DESCONTO ao seu referente ou acesse www.bettingexchangeroom.com",
 
                 new_to_crypto: "NOVO EM CRIPTO?",
                 how_wallet_title: "Crie a Carteira",
@@ -1047,6 +1040,8 @@
                 sim_w_write: "Escreva estas 24 palavras na ordem exata.",
                 sim_w_saved: "Eu as salvei",
                 sim_w_ready: "Pronto!",
+                sim_w_done_title: "Configuração Completa",
+                sim_w_done_desc: "Você salvou sua carteira com sucesso. Mantenha sua frase segura.",
                 sim_u_total: "Saldo Total",
                 sim_u_add: "Adicionar Cripto",
                 sim_u_send: "Enviar",
@@ -1062,7 +1057,6 @@
                 sim_u_network_fee: "Taxa da Rede",
                 sim_u_to_address: "Endereço de destino",
                 sim_u_confirm_pay: "Confirmar Pagamento",
-                mock_opening: "Abrindo TON Connect para aprovação da transação...",
 
                 tw_t1: "1. Abra o @wallet",
                 tw_d1: "Pesquise <b>@wallet</b> na barra de busca superior. Clique em <b>Iniciar</b> e depois no botão <b>Open Wallet</b> ou digite no navegador: <a href='https://t.me/wallet' target='_blank' class='text-tg-blue underline'>https://t.me/wallet</a>.",
@@ -1072,7 +1066,7 @@
                 tw_d3: "Escolha backup manual. Você verá <b>24 palavras secretas</b>. Escreva no papel na ordem exata! Sem prints, elas recuperam seus fundos se perder o celular.",
                 tw_t4: "4. Abrir Carteira",
                 tw_d4: "Agora que você entendeu como funciona, abra sua Carteira oficial no Telegram para prosseguir.",
-                tw_btn_open: "Abra sua carteira agora",
+                tw_btn_open: "Abrir Telegram Wallet",
                 
                 tu_t1: "1. Adicionar Cripto",
                 tu_d1: "Na tela inicial da sua nova Carteira, clique no botão <b>Add Crypto</b>.",
