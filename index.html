@@ -112,6 +112,21 @@
             transform: translateY(-2px);
         }
 
+        /* Nuovo Bottone Verde Acido */
+        .btn-acid-green {
+            background: linear-gradient(90deg, #b0eb00 0%, #d4ff33 50%, #b0eb00 100%);
+            background-size: 200% auto;
+            color: #002b00;
+            box-shadow: 0 4px 20px rgba(176, 235, 0, 0.3);
+            border: 1px solid rgba(212, 255, 51, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .btn-acid-green:hover, .btn-acid-green:active {
+            background-position: right center;
+            box-shadow: 0 8px 25px rgba(176, 235, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
         /* --- ANIMAZIONE MESSAGGIO ROSSO/VERDE --- */
         @keyframes pulse-rg {
             0%, 100% { color: #10B981; transform: scale(1); text-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
@@ -267,29 +282,34 @@
     <!-- Container Dinamico Fluido -->
     <div class="flex-1 w-full max-w-[420px] relative overflow-hidden flex flex-col">
 
-        <!-- SCREEN 1: Selezione Lingua -->
+        <!-- SCREEN 1: Selezione Lingua & Accesso -->
         <div id="screen-lang" class="screen active">
             <div class="scroll-container justify-center">
-                <div class="mb-6 flex justify-center">
-                    <i class="fa-solid fa-gift text-4xl sm:text-5xl gold-gift-icon"></i>
+                
+                <!-- Pulsante ACADEMY Verde Acido -->
+                <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-acid-green rounded-xl py-3.5 px-6 text-[15px] sm:text-[16px] font-black flex items-center justify-center gap-2 mb-10 mx-auto w-full max-w-[260px] tracking-wide uppercase">
+                    <i class="fa-solid fa-graduation-cap"></i> ACADEMY
+                </a>
+
+                <!-- Pacchetto Regalo + Testo Coupon Discount pulsanti -->
+                <div class="mb-10 flex flex-col items-center justify-center">
+                    <i class="fa-solid fa-gift text-4xl sm:text-5xl gold-gift-icon mb-3"></i>
+                    <span class="gold-gift-icon font-black text-[15px] sm:text-[17px] tracking-[0.15em] uppercase text-center">Coupon Discount</span>
                 </div>
-                <h2 data-i18n="select_lang" class="text-center text-gray-400 mb-6 font-semibold uppercase tracking-widest text-xs">Select your language</h2>
-                <div class="grid grid-cols-2 gap-4 w-full">
-                    <button onclick="setLanguage('en')" class="flag-btn glass-btn hover:bg-white/5 rounded-2xl p-5 flex flex-col items-center justify-center gap-3">
-                        <img src="https://flagcdn.com/w80/gb.png" alt="English" loading="lazy" class="w-12 h-8 object-cover rounded shadow-sm opacity-90">
-                        <span class="font-medium text-xs text-center leading-tight text-gray-200 tracking-wide">English</span>
+
+                <!-- Bandiere Piccole ad Alta Definizione su Una Sola Linea Elegante -->
+                <div class="flex justify-center items-center gap-4 sm:gap-6 w-full">
+                    <button onclick="setLanguage('en')" class="flag-btn glass-btn hover:bg-white/10 rounded-lg p-2.5 flex items-center justify-center">
+                        <img src="https://flagcdn.com/w80/gb.png" alt="English" loading="lazy" class="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
                     </button>
-                    <button onclick="setLanguage('es')" class="flag-btn glass-btn hover:bg-white/5 rounded-2xl p-5 flex flex-col items-center justify-center gap-3">
-                        <img src="https://flagcdn.com/w80/es.png" alt="Español" loading="lazy" class="w-12 h-8 object-cover rounded shadow-sm opacity-90">
-                        <span class="font-medium text-xs text-center leading-tight text-gray-200 tracking-wide">Español</span>
+                    <button onclick="setLanguage('es')" class="flag-btn glass-btn hover:bg-white/10 rounded-lg p-2.5 flex items-center justify-center">
+                        <img src="https://flagcdn.com/w80/es.png" alt="Español" loading="lazy" class="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
                     </button>
-                    <button onclick="setLanguage('br')" class="flag-btn glass-btn hover:bg-white/5 rounded-2xl p-5 flex flex-col items-center justify-center gap-3">
-                        <img src="https://flagcdn.com/w80/br.png" alt="Português" loading="lazy" class="w-12 h-8 object-cover rounded shadow-sm opacity-90">
-                        <span class="font-medium text-xs text-center leading-tight text-gray-200 tracking-wide">Português</span>
+                    <button onclick="setLanguage('br')" class="flag-btn glass-btn hover:bg-white/10 rounded-lg p-2.5 flex items-center justify-center">
+                        <img src="https://flagcdn.com/w80/br.png" alt="Português" loading="lazy" class="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
                     </button>
-                    <button onclick="setLanguage('it')" class="flag-btn glass-btn hover:bg-white/5 rounded-2xl p-5 flex flex-col items-center justify-center gap-3">
-                        <img src="https://flagcdn.com/w80/it.png" alt="Italiano" loading="lazy" class="w-12 h-8 object-cover rounded shadow-sm opacity-90">
-                        <span class="font-medium text-xs text-center leading-tight text-gray-200 tracking-wide">Italiano</span>
+                    <button onclick="setLanguage('it')" class="flag-btn glass-btn hover:bg-white/10 rounded-lg p-2.5 flex items-center justify-center">
+                        <img src="https://flagcdn.com/w80/it.png" alt="Italiano" loading="lazy" class="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
                     </button>
                 </div>
             </div>
@@ -730,7 +750,7 @@
                         </div>
                         <div>
                             <h4 data-i18n="sec_usdt_title" class="font-bold text-white text-[13px] mb-1">Cos'è USDT?</h4>
-                            <p data-i18n="sec_usdt_desc" class="text-[12px] text-gray-400 leading-snug">È il "dollaro digitale". 1 USDT vale esattamente 1 Dollaro Americano. È stabile, non oscilla come il Bitcoin, perfeito per gli abbonamenti.</p>
+                            <p data-i18n="sec_usdt_desc" class="text-[12px] text-gray-400 leading-snug">È il "dollaro digitale". 1 USDT vale esattamente 1 Dollaro Americano. È stabile, non oscilla come il Bitcoin, perfetto per gli abbonamenti.</p>
                         </div>
                     </div>
 
