@@ -33,7 +33,7 @@
     </script>
     <style>
         body {
-            background-color: #070B14;
+            background-color: #05070A; /* Sfondo ancora più profondo e premium */
             color: white;
             -webkit-tap-highlight-color: transparent;
             overscroll-behavior-y: none;
@@ -41,7 +41,7 @@
 
         .screen {
             display: none;
-            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             width: 100%;
             height: 100%;
             flex-direction: column;
@@ -63,7 +63,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -72,80 +72,94 @@
             border: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 4px 30px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* --- STILE GIOIELLO (Jewel Style) PER MASSIMA CONVERSIONE --- */
-        .jewel-case {
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.6) 0%, rgba(7, 11, 20, 0.8) 100%);
+        /* --- SOBER LUXURY DESIGN (Massima eleganza, zero "cheap marketing") --- */
+        .luxury-panel {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.4) 0%, rgba(7, 11, 20, 0.7) 100%);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.9);
+            border-radius: 1.5rem;
         }
 
-        .btn-jewel {
+        .btn-luxury {
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 1.75rem 1.5rem;
+            border-radius: 1.25rem;
+            gap: 1rem;
             text-align: center;
-            padding: 1.5rem;
-            border-radius: 1.5rem;
-            gap: 0.875rem;
-            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             width: 100%;
+            text-decoration: none;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        /* Effetto Riflesso di Luce (Shine) che scorre sui bottoni */
-        .btn-jewel::before {
+        /* Effetto di luce interna ambientale */
+        .btn-luxury::after {
             content: '';
             position: absolute;
-            top: 0; left: -150%;
-            width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            animation: jewel-shine 6s infinite;
-            z-index: 1;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
             pointer-events: none;
+            z-index: -1;
         }
 
-        @keyframes jewel-shine {
-            0%, 15% { left: -150%; }
-            35%, 100% { left: 150%; }
+        /* Bottone Argento Metallizzato (Sottile, pulito, freddo) */
+        .btn-silver-lux {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(226, 232, 240, 0.15);
+        }
+        .btn-silver-lux::after { background: radial-gradient(circle at center, rgba(226,232,240,0.06) 0%, transparent 70%); }
+        .btn-silver-lux:hover, .btn-silver-lux:active {
+            border-color: rgba(226, 232, 240, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(226,232,240,0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .btn-silver-lux:hover::after, .btn-silver-lux:active::after { opacity: 1; }
+        .btn-silver-lux .icon-wrap {
+            background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(255,255,255,0.15));
         }
 
-        .btn-jewel:hover { transform: translateY(-4px) scale(1.02); }
-        .btn-jewel:active { transform: translateY(2px) scale(0.98); }
+        /* Bottone Oro Lingotto (Caldo, profondo, esclusivo) */
+        .btn-gold-lux {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .btn-gold-lux::after { background: radial-gradient(circle at center, rgba(212,175,55,0.1) 0%, transparent 70%); }
+        .btn-gold-lux:hover, .btn-gold-lux:active {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -10px rgba(212,175,55,0.2);
+            background: rgba(212, 175, 55, 0.06);
+        }
+        .btn-gold-lux:hover::after, .btn-gold-lux:active::after { opacity: 1; }
+        .btn-gold-lux .icon-wrap {
+            background: linear-gradient(135deg, #FDE08B 0%, #C59B27 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(212,175,55,0.25));
+        }
 
-        /* Pulsante Argento Metallizzato Premium */
-        .btn-silver {
-            background: linear-gradient(145deg, #FFFFFF 0%, #E2E8F0 40%, #CBD5E1 60%, #94A3B8 100%);
-            box-shadow: 0 15px 35px -10px rgba(148, 163, 184, 0.4), inset 0 2px 4px rgba(255, 255, 255, 1), inset 0 -4px 8px rgba(15, 23, 42, 0.15), inset 0 0 0 1px rgba(255,255,255,0.6);
-            color: #1E293B;
+        /* Animazione Respirazione Premium per il pulsante d'oro */
+        @keyframes breath-premium {
+            0%, 100% { border-color: rgba(212, 175, 55, 0.25); box-shadow: 0 0 0 transparent; }
+            50% { border-color: rgba(212, 175, 55, 0.45); box-shadow: 0 0 25px rgba(212, 175, 55, 0.12); }
         }
-        .btn-silver::before { animation-delay: 0s; }
-        .btn-silver .icon-wrapper {
-            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
-            border: 1px solid #FFFFFF;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.15);
-            color: #334155;
-        }
-
-        /* Pulsante Oro Lingotto Premium */
-        .btn-gold-ingot {
-            background: linear-gradient(145deg, #FFF0B3 0%, #FDE08B 30%, #D4AF37 60%, #996515 100%);
-            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -4px 8px rgba(66, 32, 0, 0.25), inset 0 0 0 1px rgba(253, 224, 139, 0.8);
-            color: #422000;
-        }
-        .btn-gold-ingot::before { animation-delay: 3s; /* Ritardo per far brillare i bottoni alternati */ }
-        .btn-gold-ingot .icon-wrapper {
-            background: linear-gradient(135deg, #FDE08B 0%, #D4AF37 100%);
-            border: 1px solid #FFF3C7;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.25);
-            color: #4A2800;
+        .breath-premium {
+            animation: breath-premium 5s ease-in-out infinite;
         }
 
         /* Pulsante Premium Originale */
@@ -322,44 +336,47 @@
         <div id="screen-lang" class="screen active">
             <div class="scroll-container justify-start pb-8 pt-2">
                 
-                <!-- Selettore Lingua Elegante a Pillola -->
-                <div class="bg-gray-900/50 border border-gray-700/50 rounded-full p-1 flex justify-center items-center mb-8 mx-auto w-max backdrop-blur-sm">
-                    <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">EN</button>
-                    <button onclick="setLanguage('it')" id="lang-it" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">IT</button>
-                    <button onclick="setLanguage('es')" id="lang-es" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">ES</button>
-                    <button onclick="setLanguage('br')" id="lang-br" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">PT</button>
+                <!-- Selettore Lingua Minimalista Premium -->
+                <div class="flex items-center justify-center gap-1.5 mb-10 mx-auto w-max relative">
+                    <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-2 py-1 text-[11px] font-medium tracking-[0.15em] uppercase transition-colors text-white hover:text-white">EN</button>
+                    <span class="text-white/20 text-[10px] font-light">|</span>
+                    <button onclick="setLanguage('it')" id="lang-it" class="lang-btn px-2 py-1 text-[11px] font-medium tracking-[0.15em] uppercase transition-colors text-white/40 hover:text-white">IT</button>
+                    <span class="text-white/20 text-[10px] font-light">|</span>
+                    <button onclick="setLanguage('es')" id="lang-es" class="lang-btn px-2 py-1 text-[11px] font-medium tracking-[0.15em] uppercase transition-colors text-white/40 hover:text-white">ES</button>
+                    <span class="text-white/20 text-[10px] font-light">|</span>
+                    <button onclick="setLanguage('br')" id="lang-br" class="lang-btn px-2 py-1 text-[11px] font-medium tracking-[0.15em] uppercase transition-colors text-white/40 hover:text-white">PT</button>
                 </div>
 
-                <!-- Modulo Jewel Case: Pulsanti Congruenti per Massima Conversione -->
-                <div class="w-full jewel-case flex flex-col gap-5 px-5 py-6 max-w-[350px] mx-auto relative rounded-[2rem]">
+                <!-- Modulo Luxury Panel: Super Professionale ed Elegante -->
+                <div class="w-full luxury-panel flex flex-col gap-5 px-5 py-7 max-w-[350px] mx-auto relative">
                     
-                    <!-- Glow decorativo interno -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-bf-yellow/10 rounded-full blur-[60px] pointer-events-none"></div>
+                    <!-- Glow decorativo interno molto sfumato -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-bf-yellow/5 rounded-full blur-[70px] pointer-events-none z-0"></div>
 
                     <!-- BUTTON 1: Argento Metallizzato / Free -->
-                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-silver btn-jewel group">
-                        <div class="icon-wrapper w-14 h-14 rounded-full flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                            <i class="fa-solid fa-unlock text-2xl drop-shadow-sm"></i>
+                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-luxury btn-silver-lux group">
+                        <div class="icon-wrap text-[32px] sm:text-[36px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
                         </div>
-                        <span data-i18n="btn_silver_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide relative z-10 drop-shadow-sm">
+                        <span data-i18n="btn_silver_text" class="font-normal text-[13px] sm:text-[14px] leading-relaxed tracking-wide text-gray-300">
                             Access the first lesson and the free signals room.
                         </span>
                     </a>
 
-                    <!-- Divisore Elegante -->
-                    <div class="flex items-center gap-3 opacity-70 relative z-10 w-full px-4 my-1">
-                        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-400"></div>
-                        <span data-i18n="or_separator" class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">OR</span>
-                        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-400"></div>
+                    <!-- Divisore Elegante Minimal -->
+                    <div class="flex items-center gap-4 opacity-40 relative z-10 w-full px-4 my-1">
+                        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-400"></div>
+                        <span data-i18n="or_separator" class="text-[9px] font-light uppercase tracking-[0.3em] text-gray-300">OR</span>
+                        <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-400"></div>
                     </div>
 
                     <!-- BUTTON 2: Oro Lingotto / Premium -->
-                    <button onclick="goToOffer()" class="btn-gold-ingot btn-jewel elegant-pulse-container group">
-                        <div class="icon-wrapper w-14 h-14 rounded-full flex items-center justify-center relative z-10 elegant-icon-pulse transition-transform duration-300 group-hover:scale-110">
-                            <i class="fa-solid fa-crown text-2xl drop-shadow-md"></i>
+                    <button onclick="goToOffer()" class="btn-luxury btn-gold-lux breath-premium group">
+                        <div class="icon-wrap text-[32px] sm:text-[36px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
+                            <i class="fa-solid fa-crown"></i>
                         </div>
-                        <span data-i18n="btn_gold_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide relative z-10 drop-shadow-sm">
-                            Thanks to the coupon you can access the full academy and the premium signals room on special terms.
+                        <span data-i18n="btn_gold_text" class="font-normal text-[13px] sm:text-[14px] leading-relaxed tracking-wide text-[#FDF0D5]">
+                            Thanks to the coupon you can access the full academy and the premium signals room under special terms.
                         </span>
                     </button>
 
@@ -843,7 +860,7 @@
         const translations = {
             en: {
                 btn_silver_text: "Access the first lesson and the free signals room.",
-                btn_gold_text: "Thanks to the coupon you can access the full academy and the premium signals room on special terms.",
+                btn_gold_text: "Thanks to the coupon you can access the full academy and the premium signals room under special terms.",
                 or_separator: "OR",
                 tutorial_title: "TUTORIAL",
                 promo_desc: "You received a DISCOUNT coupon.",
@@ -1258,15 +1275,15 @@
             currentLang = lang;
             applyTranslations();
             
-            // Aggiorna lo stile dei pulsanti lingua
+            // Stile minimalista e premium per i bottoni lingua
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('bg-gray-100', 'text-black', 'shadow-md');
-                btn.classList.add('text-gray-400', 'hover:text-white');
+                btn.classList.remove('text-white');
+                btn.classList.add('text-white/40');
             });
             const activeBtn = document.getElementById(`lang-${lang}`);
             if(activeBtn) {
-                activeBtn.classList.remove('text-gray-400', 'hover:text-white');
-                activeBtn.classList.add('bg-gray-100', 'text-black', 'shadow-md');
+                activeBtn.classList.remove('text-white/40');
+                activeBtn.classList.add('text-white');
             }
         }
 
