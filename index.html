@@ -97,7 +97,7 @@
             transform: translateY(-2px);
         }
 
-        /* Nuovo Bottone Alta Conversione (Deep Sapphire Blue) */
+        /* Bottone Alta Conversione (Deep Sapphire Blue) */
         .btn-premium-action {
             background: linear-gradient(90deg, #1E3A8A 0%, #3B82F6 50%, #1E3A8A 100%);
             background-size: 200% auto;
@@ -112,17 +112,23 @@
             transform: translateY(-2px);
         }
 
-        /* Nuovo Bottone Verde Acido (Elegante & High-Converting) */
+        /* Nuovo Bottone Neon (Elegante, senza 3D, professionale) */
         .btn-acid-green {
-            background: linear-gradient(135deg, #D4FF00 0%, #AACC00 100%);
-            color: #0A0F00;
-            box-shadow: 0 10px 25px -5px rgba(212, 255, 0, 0.3), inset 0 -3px 0 rgba(0,0,0,0.1);
-            border: 1px solid #E6FF4D;
+            background: rgba(212, 255, 0, 0.05); /* Leggerissimo sfondo trasparente */
+            color: #D4FF00;
+            border: 1px solid rgba(212, 255, 0, 0.4);
+            box-shadow: 0 0 20px rgba(212, 255, 0, 0.1); /* Bagliore esterno dolce */
+            text-shadow: 0 0 8px rgba(212, 255, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
         .btn-acid-green:hover, .btn-acid-green:active {
-            box-shadow: 0 15px 35px -5px rgba(212, 255, 0, 0.5), inset 0 -1px 0 rgba(0,0,0,0.1);
-            transform: translateY(-2px) scale(1.02);
+            background: rgba(212, 255, 0, 0.15);
+            border-color: rgba(212, 255, 0, 0.9);
+            box-shadow: 0 0 30px rgba(212, 255, 0, 0.3), inset 0 0 15px rgba(212, 255, 0, 0.15);
+            text-shadow: 0 0 12px rgba(212, 255, 0, 0.8);
+            transform: translateY(-2px);
         }
 
         /* Effetto Vetro Premium per Moduli */
@@ -148,22 +154,39 @@
             display: inline-block;
         }
 
-        /* --- EFFETTO PACCO REGALO ORO ELEGANTE --- */
-        @keyframes gold-pulse {
+        /* --- EFFETTO PULSAZIONE ELEGANTE (Coupon & Icona) --- */
+        @keyframes elegant-group-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        @keyframes elegant-icon-glow {
             0%, 100% {
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+                border-color: rgba(212, 175, 55, 0.2);
                 text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
-                transform: scale(1);
             }
             50% {
-                text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
-                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+                border-color: rgba(212, 175, 55, 0.5);
+                text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
             }
         }
-        .gold-gift-icon {
-            animation: gold-pulse 3s ease-in-out infinite;
-            color: #D4AF37; /* bf-yellow */
-            display: inline-block;
-            will-change: transform, text-shadow;
+        @keyframes elegant-text-glow {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.2)); }
+            50% { filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)); }
+        }
+
+        .elegant-pulse-container {
+            animation: elegant-group-pulse 4s ease-in-out infinite;
+            will-change: transform;
+        }
+        .elegant-icon-pulse {
+            animation: elegant-icon-glow 4s ease-in-out infinite;
+            will-change: box-shadow, border-color, text-shadow;
+        }
+        .elegant-text-pulse {
+            animation: elegant-text-glow 4s ease-in-out infinite;
+            will-change: filter;
         }
 
         /* --- SMARTPHONE SIMULATOR (Fluid) --- */
@@ -304,6 +327,7 @@
                         <div class="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-bf-yellow/80"></div>
                     </div>
                     
+                    <!-- Nuovo Bottone Neon Elegante senza 3D -->
                     <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-acid-green rounded-2xl py-4 px-6 text-[15px] sm:text-[16px] font-black flex items-center justify-center gap-3 mx-auto w-full max-w-[320px] tracking-wide uppercase text-center">
                         <i class="fa-solid fa-graduation-cap text-lg"></i> ZERO TO HERO ACADEMY
                     </a>
@@ -318,14 +342,14 @@
                     <div class="absolute -top-20 -left-20 w-48 h-48 bg-bf-yellow rounded-full blur-[80px] opacity-15 pointer-events-none"></div>
                     <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-bf-blue rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
 
-                    <!-- Intestazione Modulo Coupon -->
-                    <div class="mb-8 flex flex-col items-center justify-center relative z-10 w-full">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-bf-yellow/10 to-transparent flex items-center justify-center mb-4 border border-bf-yellow/20 shadow-[0_0_20px_rgba(212,175,55,0.1)]">
-                            <i class="fa-solid fa-gift text-3xl gold-gift-icon"></i>
+                    <!-- Intestazione Modulo Coupon con Animazione Pulse Elegante -->
+                    <div class="mb-8 flex flex-col items-center justify-center relative z-10 w-full elegant-pulse-container">
+                        <div class="elegant-icon-pulse w-16 h-16 rounded-full bg-gradient-to-tr from-bf-yellow/10 to-transparent flex items-center justify-center mb-4 border border-bf-yellow/20">
+                            <i class="fa-solid fa-gift text-3xl text-bf-yellow"></i>
                         </div>
-                        <div class="flex flex-col items-center justify-center text-center gap-1 w-full">
+                        <div class="flex flex-col items-center justify-center text-center gap-1 w-full elegant-text-pulse">
                             <span class="font-bold text-[12px] sm:text-[13px] tracking-[0.3em] uppercase text-bf-yellow/80">Coupon Discount</span>
-                            <span class="font-black text-[22px] sm:text-[24px] tracking-[0.15em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FDE08B] to-[#D4AF37] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">Premium Room</span>
+                            <span class="font-black text-[22px] sm:text-[24px] tracking-[0.15em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FDE08B] to-[#D4AF37]">Premium Room</span>
                         </div>
                     </div>
 
