@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>BETTING EXCHANGE ROOM</title>
-    <link rel="preconnect" href="https://flagcdn.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +39,6 @@
             overscroll-behavior-y: none;
         }
 
-        /* Schermate Flexbox: Occupa lo spazio, non sfora, gestisce scroll interno */
         .screen {
             display: none;
             animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -69,13 +67,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .flag-btn {
-            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-        }
-        .flag-btn:active {
-            transform: scale(0.96);
-        }
-
         .glass-btn {
             background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
             border: 1px solid rgba(255,255,255,0.05);
@@ -83,7 +74,30 @@
             backdrop-filter: blur(10px);
         }
 
-        /* --- EFFETTI PULSANTI PREMIUM --- */
+        .btn-silver {
+            background: linear-gradient(135deg, #fdfefe 0%, #e2e8f0 30%, #cbd5e1 50%, #e2e8f0 70%, #94a3b8 100%);
+            box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.3), inset 0 2px 4px rgba(255,255,255,0.9);
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .btn-silver:hover, .btn-silver:active {
+            transform: scale(0.97);
+            box-shadow: 0 5px 15px -5px rgba(255, 255, 255, 0.4), inset 0 2px 8px rgba(255,255,255,1);
+        }
+
+        .btn-gold-ingot {
+            background: linear-gradient(135deg, #FDE08B 0%, #D4AF37 30%, #AA771C 50%, #D4AF37 70%, #8A5A19 100%);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.5), inset 0 2px 4px rgba(255,255,255,0.6);
+            border: 1px solid rgba(253, 224, 139, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .btn-gold-ingot:hover, .btn-gold-ingot:active {
+            transform: scale(0.97);
+            box-shadow: 0 5px 15px -5px rgba(212, 175, 55, 0.6), inset 0 2px 8px rgba(255,255,255,0.8);
+            background-position: right center;
+        }
+
+        /* Pulsante Premium Originale */
         .btn-premium-gold {
             background: linear-gradient(90deg, #C59B27 0%, #F5E084 50%, #C59B27 100%);
             background-size: 200% auto;
@@ -97,7 +111,6 @@
             transform: translateY(-2px);
         }
 
-        /* Bottone Alta Conversione (Deep Sapphire Blue) */
         .btn-premium-action {
             background: linear-gradient(90deg, #1E3A8A 0%, #3B82F6 50%, #1E3A8A 100%);
             background-size: 200% auto;
@@ -112,68 +125,18 @@
             transform: translateY(-2px);
         }
 
-        /* Nuovo Bottone Neon (Elegante, senza 3D, professionale) */
-        .btn-acid-green {
-            background: rgba(212, 255, 0, 0.05); /* Leggerissimo sfondo trasparente */
-            color: #D4FF00;
-            border: 1px solid rgba(212, 255, 0, 0.4);
-            box-shadow: 0 0 20px rgba(212, 255, 0, 0.1); /* Bagliore esterno dolce */
-            text-shadow: 0 0 8px rgba(212, 255, 0, 0.3);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .btn-acid-green:hover, .btn-acid-green:active {
-            background: rgba(212, 255, 0, 0.15);
-            border-color: rgba(212, 255, 0, 0.9);
-            box-shadow: 0 0 30px rgba(212, 255, 0, 0.3), inset 0 0 15px rgba(212, 255, 0, 0.15);
-            text-shadow: 0 0 12px rgba(212, 255, 0, 0.8);
-            transform: translateY(-2px);
-        }
-
-        /* Effetto Vetro Premium per Moduli */
-        .premium-glass-card {
-            background: linear-gradient(180deg, rgba(22, 30, 46, 0.7) 0%, rgba(10, 15, 26, 0.8) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* --- ANIMAZIONE MESSAGGIO ROSSO/VERDE --- */
         @keyframes pulse-rg {
             0%, 100% { color: #10B981; transform: scale(1); text-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
             50% { color: #EF4444; transform: scale(1.03); text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
         }
-        .pulse-rg {
-            animation: pulse-rg 2.5s ease-in-out infinite;
-            font-weight: 800;
-            text-align: center;
-            font-size: 11.5px;
-            letter-spacing: 0.5px;
-            display: inline-block;
-        }
 
-        /* --- EFFETTO PULSAZIONE ELEGANTE (Coupon & Icona) --- */
         @keyframes elegant-group-pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.015); }
         }
         @keyframes elegant-icon-glow {
-            0%, 100% {
-                box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-                border-color: rgba(212, 175, 55, 0.2);
-                text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-                border-color: rgba(212, 175, 55, 0.5);
-                text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
-            }
-        }
-        @keyframes elegant-text-glow {
-            0%, 100% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.2)); }
-            50% { filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)); }
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3)); }
+            50% { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7)); }
         }
 
         .elegant-pulse-container {
@@ -182,14 +145,8 @@
         }
         .elegant-icon-pulse {
             animation: elegant-icon-glow 4s ease-in-out infinite;
-            will-change: box-shadow, border-color, text-shadow;
-        }
-        .elegant-text-pulse {
-            animation: elegant-text-glow 4s ease-in-out infinite;
-            will-change: filter;
         }
 
-        /* --- SMARTPHONE SIMULATOR (Fluid) --- */
         .sim-phone {
             flex: none;
             height: 380px;
@@ -301,7 +258,6 @@
 </head>
 <body class="h-[100dvh] w-full flex flex-col items-center justify-start overflow-hidden px-3 sm:px-4 pt-4">
 
-    <!-- Header Elegante Fisso -->
     <div class="flex flex-col items-center justify-center shrink-0 w-full mb-3">
         <img src="logo-tondo.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=BE&background=111827&color=D4AF37&rounded=true'" alt="Logo" class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-gray-700 shadow-[0_4px_15px_rgba(0,0,0,0.3)] object-cover mb-2">
         <h1 class="text-[13px] sm:text-[16px] font-bold tracking-[0.2em] text-center text-gray-300 leading-tight">
@@ -312,71 +268,47 @@
     <!-- Container Dinamico Fluido -->
     <div class="flex-1 w-full max-w-[420px] relative overflow-hidden flex flex-col">
 
-        <!-- SCREEN 1: Selezione Lingua & Accesso -->
         <div id="screen-lang" class="screen active">
-            <div class="scroll-container justify-center pb-8 pt-2">
+            <div class="scroll-container justify-start pb-8 pt-2">
                 
-                <!-- SEZIONE 1: ACADEMY -->
-                <div class="w-full flex flex-col items-center mb-8">
-                    <!-- Indicatore Lezione Gratuita Elegante -->
-                    <div class="mb-3 flex items-center justify-center gap-3 w-full">
-                        <div class="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-bf-yellow/80"></div>
-                        <span class="text-bf-yellow text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] flex items-center gap-1.5">
-                            <i class="fa-solid fa-play text-[9px]"></i> Free Trial Lesson 1
-                        </span>
-                        <div class="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-bf-yellow/80"></div>
-                    </div>
+                <!-- Selettore Lingua Elegante a Pillola -->
+                <div class="bg-gray-900/50 border border-gray-700/50 rounded-full p-1 flex justify-center items-center mb-8 mx-auto w-max backdrop-blur-sm">
+                    <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">EN</button>
+                    <button onclick="setLanguage('it')" id="lang-it" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">IT</button>
+                    <button onclick="setLanguage('es')" id="lang-es" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">ES</button>
+                    <button onclick="setLanguage('br')" id="lang-br" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">PT</button>
+                </div>
+
+                <!-- Modulo Pulsanti Congruenti -->
+                <div class="w-full flex flex-col gap-6 px-1 max-w-[340px] mx-auto">
                     
-                    <!-- Nuovo Bottone Neon Elegante senza 3D -->
-                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-acid-green rounded-2xl py-4 px-6 text-[15px] sm:text-[16px] font-black flex items-center justify-center gap-3 mx-auto w-full max-w-[320px] tracking-wide uppercase text-center">
-                        <i class="fa-solid fa-graduation-cap text-lg"></i> ZERO TO HERO ACADEMY
+                    <!-- BUTTON 1: Argento Metallizzato -->
+                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-silver w-full rounded-3xl p-6 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-black/5 flex items-center justify-center border border-black/10 shadow-inner">
+                            <i class="fa-solid fa-unlock-keyhole text-2xl text-[#2d3748]"></i>
+                        </div>
+                        <span data-i18n="btn_silver_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide text-[#1a202c]">
+                            Access the first lesson and the free signals room
+                        </span>
                     </a>
-                </div>
 
-                <!-- Divisore Elegante Minimal -->
-                <div class="w-full max-w-[280px] h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8 mx-auto opacity-50"></div>
-
-                <!-- SEZIONE 2: MODULO COUPON DISCOUNT ELEGANTE -->
-                <div class="w-full premium-glass-card rounded-3xl p-8 flex flex-col items-center relative overflow-hidden">
-                    <!-- Glow posteriore decorativo profondo -->
-                    <div class="absolute -top-20 -left-20 w-48 h-48 bg-bf-yellow rounded-full blur-[80px] opacity-15 pointer-events-none"></div>
-                    <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-bf-blue rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
-
-                    <!-- Intestazione Modulo Coupon con Animazione Pulse Elegante -->
-                    <div class="mb-8 flex flex-col items-center justify-center relative z-10 w-full elegant-pulse-container">
-                        <div class="elegant-icon-pulse w-16 h-16 rounded-full bg-gradient-to-tr from-bf-yellow/10 to-transparent flex items-center justify-center mb-4 border border-bf-yellow/20">
-                            <i class="fa-solid fa-gift text-3xl text-bf-yellow"></i>
+                    <!-- BUTTON 2: Oro Lingotto -->
+                    <button onclick="goToOffer()" class="btn-gold-ingot w-full rounded-3xl p-6 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden elegant-pulse-container">
+                        <div class="w-12 h-12 rounded-full bg-black/5 flex items-center justify-center border border-black/10 shadow-inner elegant-icon-pulse">
+                            <i class="fa-solid fa-crown text-2xl text-[#4a3a10]"></i>
                         </div>
-                        <div class="flex flex-col items-center justify-center text-center gap-1 w-full elegant-text-pulse">
-                            <span class="font-bold text-[12px] sm:text-[13px] tracking-[0.3em] uppercase text-bf-yellow/80">Coupon Discount</span>
-                            <span class="font-black text-[22px] sm:text-[24px] tracking-[0.15em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FDE08B] to-[#D4AF37]">Premium Room</span>
-                        </div>
-                    </div>
+                        <span data-i18n="btn_gold_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide text-[#3b2f0b]">
+                            Thanks to the coupon you can access the full academy and the premium signals room on special terms
+                        </span>
+                    </button>
 
-                    <!-- Bandiere Piccole ad Alta Definizione -->
-                    <div class="flex justify-center items-center gap-4 sm:gap-6 w-full relative z-10">
-                        <button onclick="setLanguage('en')" class="flag-btn glass-btn hover:bg-white/10 hover:border-white/20 rounded-xl p-3 flex items-center justify-center group">
-                            <img src="https://flagcdn.com/w80/gb.png" alt="English" loading="lazy" class="w-11 h-8 sm:w-12 sm:h-9 object-cover rounded-md shadow-sm opacity-80 group-hover:opacity-100 transition-all">
-                        </button>
-                        <button onclick="setLanguage('es')" class="flag-btn glass-btn hover:bg-white/10 hover:border-white/20 rounded-xl p-3 flex items-center justify-center group">
-                            <img src="https://flagcdn.com/w80/es.png" alt="Español" loading="lazy" class="w-11 h-8 sm:w-12 sm:h-9 object-cover rounded-md shadow-sm opacity-80 group-hover:opacity-100 transition-all">
-                        </button>
-                        <button onclick="setLanguage('br')" class="flag-btn glass-btn hover:bg-white/10 hover:border-white/20 rounded-xl p-3 flex items-center justify-center group">
-                            <img src="https://flagcdn.com/w80/br.png" alt="Português" loading="lazy" class="w-11 h-8 sm:w-12 sm:h-9 object-cover rounded-md shadow-sm opacity-80 group-hover:opacity-100 transition-all">
-                        </button>
-                        <button onclick="setLanguage('it')" class="flag-btn glass-btn hover:bg-white/10 hover:border-white/20 rounded-xl p-3 flex items-center justify-center group">
-                            <img src="https://flagcdn.com/w80/it.png" alt="Italiano" loading="lazy" class="w-11 h-8 sm:w-12 sm:h-9 object-cover rounded-md shadow-sm opacity-80 group-hover:opacity-100 transition-all">
-                        </button>
-                    </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- SCREEN 2: Offerta Flash -->
         <div id="screen-offer" class="screen">
-            <div class="scroll-container">
-                <div class="bg-panel-bg rounded-3xl border border-gray-800 p-5 w-full relative flex flex-col items-center shadow-2xl flex-shrink-0">
+            <div class="scroll-container justify-center">
+                <div class="bg-panel-bg rounded-3xl border border-gray-800 p-5 w-full relative flex flex-col items-center shadow-2xl flex-shrink-0 mt-4">
                     
                     <div class="bg-gray-800/30 border border-bf-yellow/20 rounded-xl p-3 w-full mb-5 flex items-center justify-center gap-3 shrink-0 backdrop-blur-sm">
                         <div class="w-10 h-10 rounded-full bg-bf-yellow/10 flex items-center justify-center shrink-0 border border-bf-yellow/20">
@@ -415,22 +347,18 @@
             </div>
         </div>
 
-        <!-- SCREEN 3: Pagamento Alta Conversione ("La Macchinetta") -->
         <div id="screen-payment" class="screen">
             <div class="scroll-container no-scrollbar">
                 
                 <!-- Premium Card -->
                 <div class="w-full bg-[#111827] rounded-3xl border border-[#D4AF37]/40 shadow-[0_10px_40px_rgba(212,175,55,0.15)] relative overflow-hidden flex flex-col items-center px-4 py-6 mb-4 flex-shrink-0">
                     
-                    <!-- Glow posteriore -->
                     <div class="absolute -top-20 -left-20 w-48 h-48 bg-bf-yellow rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
 
-                    <!-- Badge prenotazione -->
                     <div class="bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-lg flex items-center gap-2 animate-pulse">
                         <i class="fa-solid fa-fire"></i> <span data-i18n="pl_badge">POSTO RISERVATO</span>
                     </div>
                     
-                    <!-- Titolo ad Alto Impatto -->
                     <h2 data-i18n="pl_title" class="text-[22px] sm:text-[24px] font-black text-white uppercase text-center leading-tight mb-2 tracking-tight">IL TUO POSTO È RISERVATO!</h2>
                     
                     <p data-i18n="pl_subtitle" class="text-[13px] text-gray-400 text-center mb-5 font-medium px-2">
@@ -441,7 +369,6 @@
                         </span>
                     </p>
                     
-                    <!-- Benefit Chiari e Precisi -->
                     <div class="w-full bg-[#070B14] border border-gray-800 rounded-2xl p-4 mb-6 shadow-inner">
                         <ul class="space-y-3.5 text-[13px] text-gray-200 font-semibold">
                             <li class="flex items-center gap-3">
@@ -459,13 +386,11 @@
                         </ul>
                     </div>
 
-                    <!-- CTA Primaria -->
                     <button onclick="showMockMessage(translations[currentLang]['mock_discount_text'])" class="w-full btn-premium-action rounded-2xl py-4 text-[16px] font-black flex items-center justify-center gap-2">
                         <i class="fa-solid fa-bolt text-white"></i> <span data-i18n="pay_now">SBLOCCA ACCESSO ORA</span>
                     </button>
                 </div>
 
-                <!-- Box Tutorial Distinto -->
                 <div class="w-full flex flex-col items-center flex-shrink-0 mb-4 px-1">
                     <div class="flex items-center gap-3 w-full mb-3">
                         <div class="h-px bg-gray-800 flex-1"></div>
@@ -497,14 +422,12 @@
             </div>
         </div>
 
-        <!-- SCREEN 4: Tutorial INTERATTIVO Wallet -->
         <div id="screen-tutorial-wallet" class="screen">
             <div class="scroll-container no-scrollbar">
                 <div class="bg-gray-800/50 border border-gray-700 text-gray-300 text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3 flex items-center gap-2 shrink-0">
                     <i class="fa-solid fa-info-circle"></i> <span data-i18n="tut_badge">Tutorial - Simulazione non operativa</span>
                 </div>
 
-                <!-- Simulator Container -->
                 <div class="sim-phone mb-4">
                     <div class="phone-notch"></div>
                     
@@ -580,7 +503,6 @@
                     <div class="phone-home-indicator"></div>
                 </div>
 
-                <!-- Controls -->
                 <div class="bg-panel-bg w-full p-4 rounded-2xl border border-gray-800 shadow-xl flex flex-col justify-between relative shrink-0">
                     <div class="flex justify-between items-center mb-2">
                         <h3 id="tw-title" class="font-bold text-[13px] text-white">...</h3>
@@ -598,14 +520,12 @@
             </div>
         </div>
 
-        <!-- SCREEN 5: Tutorial INTERATTIVO USDT & TON -->
         <div id="screen-tutorial-usdt" class="screen">
             <div class="scroll-container no-scrollbar">
                 <div class="bg-gray-800/50 border border-gray-700 text-gray-300 text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3 flex items-center gap-2 shrink-0">
                     <i class="fa-solid fa-info-circle"></i> <span data-i18n="tut_badge">Tutorial - Simulazione non operativa</span>
                 </div>
 
-                <!-- Simulator Container -->
                 <div class="sim-phone mb-4">
                     <div class="phone-notch"></div>
                     
@@ -758,7 +678,6 @@
                     <div class="phone-home-indicator"></div>
                 </div>
 
-                <!-- Controls -->
                 <div class="bg-panel-bg w-full p-4 rounded-2xl border border-gray-800 shadow-xl flex flex-col justify-between relative shrink-0">
                     <div class="flex justify-between items-center mb-2">
                         <h3 id="tu-title" class="font-bold text-[13px] text-white">...</h3>
@@ -840,7 +759,7 @@
         </div>
     </div>
 
-    <!-- Mock Modal Aggiornato (Sito Ufficiale) -->
+    <!-- Mock Modal -->
     <div id="mock-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
         <div class="bg-panel-bg border border-gray-700 rounded-3xl p-6 w-full max-w-sm text-center shadow-[0_15px_50px_rgba(0,0,0,0.6)] modal-enter relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-600 to-blue-400"></div>
@@ -862,6 +781,9 @@
     <script>
         const translations = {
             en: {
+                btn_silver_text: "Access the first lesson and the free signals room",
+                btn_gold_text: "Thanks to the coupon, access the full Academy and the Premium Signals Room on special terms",
+                
                 tutorial_title: "TUTORIAL",
                 promo_desc: "You received a DISCOUNT coupon.",
                 select_lang: "Select your language",
@@ -959,6 +881,9 @@
                 tu_d6: "Back on the menu, click <b>PAY NOW</b> to confirm the Smart Contract. Once paid, you will instantly receive the <b>Signals Channel Link</b> and your <b>Unique Password</b> for <i>https://www.bettingexchangeroom.com</i> (both valid for 1 month)."
             },
             it: {
+                btn_silver_text: "Accedi alla prima lezione e alla sala segnali gratuiti",
+                btn_gold_text: "Grazie al coupon puoi accedere all'academy completa e alla sala segnali premium a condizioni speciali",
+
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Hai ricevuto un coupon SCONTO.",
                 select_lang: "Seleziona la tua lingua",
@@ -1056,6 +981,9 @@
                 tu_d6: "Tornato al menu, clicca su <b>PAGA ORA</b>. Confermerai la transazione allo Smart Contract. A pagamento completato riceverai istantaneamente il <b>Link d'ingresso al Canale Segnali</b> e la <b>Password Univoca</b>."
             },
             es: {
+                btn_silver_text: "Accede a la primera lección y a la sala de señales gratuitas",
+                btn_gold_text: "Gracias al cupón puedes acceder a la academia completa y a la sala de señales premium en condiciones especiales",
+
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Has recibido un cupón de DESCUENTO.",
                 select_lang: "Selecciona tu idioma",
@@ -1153,6 +1081,9 @@
                 tu_d6: "De vuelta en el menú, presiona <b>PAGAR AHORA</b> para confirmar el Smart Contract. Al instante recibirás el <b>Enlace del Canal de Señales</b> y tu <b>Contraseña Única</b>."
             },
             br: {
+                btn_silver_text: "Acesse a primeira lição e a sala de sinais gratuitos",
+                btn_gold_text: "Graças ao cupom, você pode acessar a academia completa e a sala de sinais premium em condições especiais",
+
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Você recebeu um cupom de DESCONTO.",
                 select_lang: "Selecione seu idioma",
@@ -1265,7 +1196,17 @@
         function setLanguage(lang) {
             currentLang = lang;
             applyTranslations();
-            goToOffer();
+            
+            // Aggiorna lo stile dei pulsanti lingua
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-gray-100', 'text-black', 'shadow-md');
+                btn.classList.add('text-gray-400', 'hover:text-white');
+            });
+            const activeBtn = document.getElementById(`lang-${lang}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-gray-400', 'hover:text-white');
+                activeBtn.classList.add('bg-gray-100', 'text-black', 'shadow-md');
+            }
         }
 
         function showScreen(screenId) {
@@ -1414,7 +1355,8 @@
             document.getElementById('mock-modal').classList.remove('flex');
         }
 
-        applyTranslations();
+        // Initialize with default language (English)
+        setLanguage('en');
     </script>
 </body>
 </html>
