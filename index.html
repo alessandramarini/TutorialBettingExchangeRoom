@@ -74,27 +74,78 @@
             backdrop-filter: blur(10px);
         }
 
-        .btn-silver {
-            background: linear-gradient(135deg, #fdfefe 0%, #e2e8f0 30%, #cbd5e1 50%, #e2e8f0 70%, #94a3b8 100%);
-            box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.3), inset 0 2px 4px rgba(255,255,255,0.9);
-            border: 1px solid rgba(255,255,255,0.6);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .btn-silver:hover, .btn-silver:active {
-            transform: scale(0.97);
-            box-shadow: 0 5px 15px -5px rgba(255, 255, 255, 0.4), inset 0 2px 8px rgba(255,255,255,1);
+        /* --- STILE GIOIELLO (Jewel Style) PER MASSIMA CONVERSIONE --- */
+        .jewel-case {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.6) 0%, rgba(7, 11, 20, 0.8) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.1);
         }
 
-        .btn-gold-ingot {
-            background: linear-gradient(135deg, #FDE08B 0%, #D4AF37 30%, #AA771C 50%, #D4AF37 70%, #8A5A19 100%);
-            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.5), inset 0 2px 4px rgba(255,255,255,0.6);
-            border: 1px solid rgba(253, 224, 139, 0.5);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        .btn-jewel {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            gap: 0.875rem;
+            text-decoration: none;
+            width: 100%;
         }
-        .btn-gold-ingot:hover, .btn-gold-ingot:active {
-            transform: scale(0.97);
-            box-shadow: 0 5px 15px -5px rgba(212, 175, 55, 0.6), inset 0 2px 8px rgba(255,255,255,0.8);
-            background-position: right center;
+
+        /* Effetto Riflesso di Luce (Shine) che scorre sui bottoni */
+        .btn-jewel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: jewel-shine 6s infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes jewel-shine {
+            0%, 15% { left: -150%; }
+            35%, 100% { left: 150%; }
+        }
+
+        .btn-jewel:hover { transform: translateY(-4px) scale(1.02); }
+        .btn-jewel:active { transform: translateY(2px) scale(0.98); }
+
+        /* Pulsante Argento Metallizzato Premium */
+        .btn-silver {
+            background: linear-gradient(145deg, #FFFFFF 0%, #E2E8F0 40%, #CBD5E1 60%, #94A3B8 100%);
+            box-shadow: 0 15px 35px -10px rgba(148, 163, 184, 0.4), inset 0 2px 4px rgba(255, 255, 255, 1), inset 0 -4px 8px rgba(15, 23, 42, 0.15), inset 0 0 0 1px rgba(255,255,255,0.6);
+            color: #1E293B;
+        }
+        .btn-silver::before { animation-delay: 0s; }
+        .btn-silver .icon-wrapper {
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            border: 1px solid #FFFFFF;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.15);
+            color: #334155;
+        }
+
+        /* Pulsante Oro Lingotto Premium */
+        .btn-gold-ingot {
+            background: linear-gradient(145deg, #FFF0B3 0%, #FDE08B 30%, #D4AF37 60%, #996515 100%);
+            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -4px 8px rgba(66, 32, 0, 0.25), inset 0 0 0 1px rgba(253, 224, 139, 0.8);
+            color: #422000;
+        }
+        .btn-gold-ingot::before { animation-delay: 3s; /* Ritardo per far brillare i bottoni alternati */ }
+        .btn-gold-ingot .icon-wrapper {
+            background: linear-gradient(135deg, #FDE08B 0%, #D4AF37 100%);
+            border: 1px solid #FFF3C7;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.25);
+            color: #4A2800;
         }
 
         /* Pulsante Premium Originale */
@@ -279,26 +330,36 @@
                     <button onclick="setLanguage('br')" id="lang-br" class="lang-btn px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-gray-400 hover:text-white">PT</button>
                 </div>
 
-                <!-- Modulo Pulsanti Congruenti -->
-                <div class="w-full flex flex-col gap-6 px-1 max-w-[340px] mx-auto">
+                <!-- Modulo Jewel Case: Pulsanti Congruenti per Massima Conversione -->
+                <div class="w-full jewel-case flex flex-col gap-5 px-5 py-6 max-w-[350px] mx-auto relative rounded-[2rem]">
                     
-                    <!-- BUTTON 1: Argento Metallizzato -->
-                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-silver w-full rounded-3xl p-6 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden">
-                        <div class="w-12 h-12 rounded-full bg-black/5 flex items-center justify-center border border-black/10 shadow-inner">
-                            <i class="fa-solid fa-unlock-keyhole text-2xl text-[#2d3748]"></i>
+                    <!-- Glow decorativo interno -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-bf-yellow/10 rounded-full blur-[60px] pointer-events-none"></div>
+
+                    <!-- BUTTON 1: Argento Metallizzato / Free -->
+                    <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-silver btn-jewel group">
+                        <div class="icon-wrapper w-14 h-14 rounded-full flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-unlock text-2xl drop-shadow-sm"></i>
                         </div>
-                        <span data-i18n="btn_silver_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide text-[#1a202c]">
-                            Access the first lesson and the free signals room
+                        <span data-i18n="btn_silver_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide relative z-10 drop-shadow-sm">
+                            Access the first lesson and the free signals room.
                         </span>
                     </a>
 
-                    <!-- BUTTON 2: Oro Lingotto -->
-                    <button onclick="goToOffer()" class="btn-gold-ingot w-full rounded-3xl p-6 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden elegant-pulse-container">
-                        <div class="w-12 h-12 rounded-full bg-black/5 flex items-center justify-center border border-black/10 shadow-inner elegant-icon-pulse">
-                            <i class="fa-solid fa-crown text-2xl text-[#4a3a10]"></i>
+                    <!-- Divisore Elegante -->
+                    <div class="flex items-center gap-3 opacity-70 relative z-10 w-full px-4 my-1">
+                        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-400"></div>
+                        <span data-i18n="or_separator" class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">OR</span>
+                        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-400"></div>
+                    </div>
+
+                    <!-- BUTTON 2: Oro Lingotto / Premium -->
+                    <button onclick="goToOffer()" class="btn-gold-ingot btn-jewel elegant-pulse-container group">
+                        <div class="icon-wrapper w-14 h-14 rounded-full flex items-center justify-center relative z-10 elegant-icon-pulse transition-transform duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-crown text-2xl drop-shadow-md"></i>
                         </div>
-                        <span data-i18n="btn_gold_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide text-[#3b2f0b]">
-                            Thanks to the coupon you can access the full academy and the premium signals room on special terms
+                        <span data-i18n="btn_gold_text" class="font-extrabold text-[13px] sm:text-[14px] leading-snug tracking-wide relative z-10 drop-shadow-sm">
+                            Thanks to the coupon you can access the full academy and the premium signals room on special terms.
                         </span>
                     </button>
 
@@ -781,9 +842,9 @@
     <script>
         const translations = {
             en: {
-                btn_silver_text: "Access the first lesson and the free signals room",
-                btn_gold_text: "Thanks to the coupon, access the full Academy and the Premium Signals Room on special terms",
-                
+                btn_silver_text: "Access the first lesson and the free signals room.",
+                btn_gold_text: "Thanks to the coupon you can access the full academy and the premium signals room on special terms.",
+                or_separator: "OR",
                 tutorial_title: "TUTORIAL",
                 promo_desc: "You received a DISCOUNT coupon.",
                 select_lang: "Select your language",
@@ -881,9 +942,9 @@
                 tu_d6: "Back on the menu, click <b>PAY NOW</b> to confirm the Smart Contract. Once paid, you will instantly receive the <b>Signals Channel Link</b> and your <b>Unique Password</b> for <i>https://www.bettingexchangeroom.com</i> (both valid for 1 month)."
             },
             it: {
-                btn_silver_text: "Accedi alla prima lezione e alla sala segnali gratuiti",
-                btn_gold_text: "Grazie al coupon puoi accedere all'academy completa e alla sala segnali premium a condizioni speciali",
-
+                btn_silver_text: "Accedi alla prima lezione e alla sala segnali gratuiti.",
+                btn_gold_text: "Grazie al coupon puoi accedere all'academy completa e alla sala segnali premium a condizioni speciali.",
+                or_separator: "OPPURE",
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Hai ricevuto un coupon SCONTO.",
                 select_lang: "Seleziona la tua lingua",
@@ -981,9 +1042,9 @@
                 tu_d6: "Tornato al menu, clicca su <b>PAGA ORA</b>. Confermerai la transazione allo Smart Contract. A pagamento completato riceverai istantaneamente il <b>Link d'ingresso al Canale Segnali</b> e la <b>Password Univoca</b>."
             },
             es: {
-                btn_silver_text: "Accede a la primera lección y a la sala de señales gratuitas",
-                btn_gold_text: "Gracias al cupón puedes acceder a la academia completa y a la sala de señales premium en condiciones especiales",
-
+                btn_silver_text: "Accede a la primera lección y a la sala de señales gratuitas.",
+                btn_gold_text: "Gracias al cupón puedes acceder a la academia completa y a la sala de señales premium en condiciones especiales.",
+                or_separator: "O",
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Has recibido un cupón de DESCUENTO.",
                 select_lang: "Selecciona tu idioma",
@@ -1081,9 +1142,9 @@
                 tu_d6: "De vuelta en el menú, presiona <b>PAGAR AHORA</b> para confirmar el Smart Contract. Al instante recibirás el <b>Enlace del Canal de Señales</b> y tu <b>Contraseña Única</b>."
             },
             br: {
-                btn_silver_text: "Acesse a primeira lição e a sala de sinais gratuitos",
-                btn_gold_text: "Graças ao cupom, você pode acessar a academia completa e a sala de sinais premium em condições especiais",
-
+                btn_silver_text: "Acesse a primeira lição e a sala de sinais gratuitos.",
+                btn_gold_text: "Graças ao cupom você pode acessar a academia completa e a sala de sinais premium em condições especiais.",
+                or_separator: "OU",
                 tutorial_title: "TUTORIAL",
                 promo_desc: "Você recebeu um cupom de DESCONTO.",
                 select_lang: "Selecione seu idioma",
