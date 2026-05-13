@@ -61,7 +61,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 24px;
+            padding-bottom: 16px;
         }
 
         @keyframes fadeIn {
@@ -93,9 +93,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 1.75rem 1.2rem;
+            padding: 1rem; /* Ridotto per mobile */
             border-radius: 1.25rem;
-            gap: 1rem;
+            gap: 0.5rem; /* Ridotto per mobile */
             text-align: center;
             transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             width: 100%;
@@ -216,206 +216,171 @@
         .tg-toggle::after { content: ''; position: absolute; right: 2px; top: 2px; width: 16px; height: 16px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
     </style>
 </head>
-<body class="h-[100dvh] w-full flex flex-col items-center justify-start overflow-hidden px-3 sm:px-4 pt-4">
+<body class="h-[100dvh] w-full flex flex-col items-center justify-start overflow-hidden px-3 sm:px-4 pt-2">
 
     <!-- STREAMING_CHUNK:Header Section... -->
-    <div class="flex flex-col items-center justify-center shrink-0 w-full mb-3">
-        <img src="logo-tondo.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=BE&background=111827&color=D4AF37&rounded=true'" alt="Logo" class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-gray-700 shadow-[0_4px_15px_rgba(0,0,0,0.3)] object-cover mb-2">
-        <h1 class="text-[13px] sm:text-[16px] font-bold tracking-[0.2em] text-center text-gray-300 leading-tight">
+    <div class="flex flex-col items-center justify-center shrink-0 w-full mb-1 mt-1">
+        <img src="logo-tondo.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=BE&background=111827&color=D4AF37&rounded=true'" alt="Logo" class="w-8 h-8 rounded-full border border-gray-700 shadow-[0_4px_15px_rgba(0,0,0,0.3)] object-cover mb-1.5">
+        <h1 class="text-[12px] sm:text-[14px] font-bold tracking-[0.2em] text-center text-gray-300 leading-tight">
             BETTING EXCHANGE <span class="text-bf-yellow">ROOM</span>
         </h1>
     </div>
 
     <div class="flex-1 w-full max-w-[420px] relative overflow-hidden flex flex-col">
 
-        <!-- STREAMING_CHUNK:Language Selection & Main Menu Screen... -->
+        <!-- STREAMING_CHUNK:Language Selection & Main Menu Screen (Optimized for One-Screen)... -->
         <div id="screen-lang" class="screen active">
-            <div class="scroll-container justify-start pb-8 pt-2">
+            <div class="scroll-container justify-center pb-2 pt-1">
                 
                 <!-- HD Flag Selectors -->
-                <div class="flex items-center justify-center gap-4 mb-8 mx-auto w-max relative shrink-0">
+                <div class="flex items-center justify-center gap-4 mb-3 mx-auto w-max relative shrink-0">
                     <button onclick="setLanguage('en')" id="lang-en" class="lang-btn outline-none">
-                        <img src="https://flagcdn.com/w80/gb.png" class="flag-icon w-[32px] h-[22px] rounded-[3px] object-cover shadow-sm" alt="EN">
+                        <img src="https://flagcdn.com/w80/gb.png" class="flag-icon w-[28px] h-[20px] rounded-[3px] object-cover shadow-sm" alt="EN">
                     </button>
                     <button onclick="setLanguage('it')" id="lang-it" class="lang-btn active outline-none">
-                        <img src="https://flagcdn.com/w80/it.png" class="flag-icon w-[32px] h-[22px] rounded-[3px] object-cover shadow-sm" alt="IT">
+                        <img src="https://flagcdn.com/w80/it.png" class="flag-icon w-[28px] h-[20px] rounded-[3px] object-cover shadow-sm" alt="IT">
                     </button>
                     <button onclick="setLanguage('es')" id="lang-es" class="lang-btn outline-none">
-                        <img src="https://flagcdn.com/w80/es.png" class="flag-icon w-[32px] h-[22px] rounded-[3px] object-cover shadow-sm" alt="ES">
+                        <img src="https://flagcdn.com/w80/es.png" class="flag-icon w-[28px] h-[20px] rounded-[3px] object-cover shadow-sm" alt="ES">
                     </button>
                     <button onclick="setLanguage('br')" id="lang-br" class="lang-btn outline-none">
-                        <img src="https://flagcdn.com/w80/br.png" class="flag-icon w-[32px] h-[22px] rounded-[3px] object-cover shadow-sm" alt="PT">
+                        <img src="https://flagcdn.com/w80/br.png" class="flag-icon w-[28px] h-[20px] rounded-[3px] object-cover shadow-sm" alt="PT">
                     </button>
                 </div>
 
                 <!-- Modulo Luxury Panel -->
-                <div class="w-full luxury-panel flex flex-col gap-5 px-5 py-7 max-w-[350px] mx-auto relative shrink-0">
+                <div class="w-full luxury-panel flex flex-col gap-3 p-4 max-w-[360px] mx-auto relative shrink-0">
                     
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-bf-yellow/5 rounded-full blur-[70px] pointer-events-none z-0"></div>
 
                     <!-- BUTTON 1: Razzo / Free -->
                     <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-luxury btn-silver-lux group">
-                        <div class="icon-wrap text-[32px] sm:text-[36px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
+                        <div class="icon-wrap text-[26px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
                             <i class="fa-solid fa-rocket text-blue-400"></i>
                         </div>
-                        <span data-i18n="box1_desc" class="font-medium text-[12px] sm:text-[13px] leading-relaxed tracking-wide text-gray-300">
-                            Accedi alla prima lezione della ZERO to HERO Academy e entra nella sala Telegram gratuita per testare l'accuratezza dei nostri segnali.
+                        <span data-i18n="box1_desc" class="font-medium text-[11px] leading-[1.4] tracking-wide text-gray-300 px-1">
+                            Sblocca l'accesso gratuito alla prima lezione dell'Academy e alla sala segnali Telegram.
                         </span>
-                        <div data-i18n="box1_cta" class="mt-2 w-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 py-2.5 px-4 rounded-xl text-[11px] font-bold tracking-widest text-blue-400 transition-all uppercase shadow-inner text-center">
+                        <div data-i18n="box1_cta" class="mt-1 w-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 py-2.5 px-3 rounded-xl text-[10px] sm:text-[11px] font-bold tracking-widest text-blue-400 transition-all uppercase shadow-inner text-center">
                             INIZIA LA PROVA GRATUITA
                         </div>
                     </a>
 
                     <!-- Divisore -->
-                    <div class="flex items-center gap-4 opacity-40 relative z-10 w-full px-4 my-1">
+                    <div class="flex items-center gap-3 opacity-40 relative z-10 w-full px-2 my-0">
                         <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-400"></div>
-                        <span data-i18n="or_separator" class="text-[9px] font-light uppercase tracking-[0.3em] text-gray-300">OR</span>
+                        <span data-i18n="or_separator" class="text-[8px] font-light uppercase tracking-[0.3em] text-gray-300">OR</span>
                         <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-400"></div>
                     </div>
 
                     <!-- BUTTON 2: Corona / Elite -->
-                    <button onclick="handlePartnerClick()" class="btn-luxury btn-gold-lux breath-premium group">
-                        <div class="icon-wrap text-[32px] sm:text-[36px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
+                    <button onclick="lockPrice()" class="btn-luxury btn-gold-lux breath-premium group">
+                        <div class="icon-wrap text-[26px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
                             <i class="fa-solid fa-crown"></i>
                         </div>
-                        <span data-i18n="box2_desc" class="font-medium text-[12px] sm:text-[13px] leading-relaxed tracking-wide text-[#FDF0D5] text-center">
-                            Il sistema ha rilevato l'invito di un nostro Partner. Sfrutta il tuo status per sbloccare l'Academy 'Zero to Hero' e la Premium Room applicando la tariffa agevolata. (⚠️ L'accesso tramite sito pubblico richiede il pagamento completo).
+                        <span data-i18n="box2_desc" class="font-medium text-[11px] leading-[1.4] tracking-wide text-[#FDF0D5] text-center px-1">
+                            Invito Partner verificato. Sblocca l'Academy completa e la Premium Room alla tariffa riservata.
                         </span>
-                        <div data-i18n="box2_cta" class="mt-2 w-full bg-bf-yellow/10 hover:bg-bf-yellow/20 border border-bf-yellow/40 py-2.5 px-4 rounded-xl text-[12px] font-black tracking-widest text-bf-yellow transition-all uppercase shadow-[0_0_15px_rgba(212,175,55,0.15)] text-center">
+                        <div data-i18n="box2_cta" class="mt-1 w-full bg-bf-yellow/10 hover:bg-bf-yellow/20 border border-bf-yellow/40 py-2.5 px-3 rounded-xl text-[10px] sm:text-[11px] font-black tracking-widest text-bf-yellow transition-all uppercase shadow-[0_0_15px_rgba(212,175,55,0.15)] text-center">
                             SBLOCCA TARIFFA PARTNER
                         </div>
                     </button>
                 </div>
-                
-                <!-- Toggle Segreto per Simulazione (Solo per Test visivo) -->
-                <div class="mt-6 flex items-center justify-center gap-2 opacity-50 hover:opacity-100 transition-opacity shrink-0">
-                    <span class="text-[9px] text-gray-400 uppercase tracking-wider">Simula Link Partner:</span>
-                    <button onclick="togglePartnerSimulation()" id="sim-toggle-btn" class="bg-green-500/20 border border-green-500/50 text-green-400 text-[9px] px-2 py-0.5 rounded-full font-bold">ON (Checkout)</button>
-                </div>
             </div>
         </div>
 
-        <!-- STREAMING_CHUNK:Checkout Offer Screen... -->
-        <div id="screen-offer" class="screen">
-            <div class="scroll-container justify-center">
-                <div class="bg-panel-bg rounded-3xl border border-gray-800 p-5 w-full relative flex flex-col items-center shadow-2xl flex-shrink-0 mt-4">
-                    
-                    <div class="bg-gray-800/30 border border-bf-yellow/20 rounded-xl p-3 w-full mb-5 flex items-center justify-center gap-3 shrink-0 backdrop-blur-sm">
-                        <div class="w-10 h-10 rounded-full bg-bf-yellow/10 flex items-center justify-center shrink-0 border border-bf-yellow/20">
-                            <i class="fa-solid fa-handshake text-bf-yellow text-sm"></i>
-                        </div>
-                        <div>
-                            <p data-i18n="checkout_header" class="text-[12px] text-gray-200 leading-snug font-semibold tracking-wide">Rete Aziendale Convalidata: Condizioni Partner Applicate.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-center gap-2 mb-1">
-                        <span class="text-xl sm:text-2xl text-red-400/70 line-through font-semibold">97 USDT</span>
-                    </div>
-                    
-                    <div class="flex items-baseline justify-center mb-2">
-                        <span class="text-6xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FCEABB] to-[#F8B500] tracking-tighter drop-shadow-sm">37</span>
-                        <span class="text-2xl sm:text-3xl text-white font-bold ml-2">USDT</span>
-                        <span data-i18n="per_month" class="text-sm sm:text-base text-gray-400 font-semibold ml-1">/mese</span>
-                    </div>
-                    
-                    <div class="bg-bf-yellow/10 border border-bf-yellow/20 rounded-md px-3 py-1 mb-5 shrink-0">
-                        <p data-i18n="save_forever" class="text-bf-yellow font-semibold text-[11px] uppercase tracking-wider">Risparmi il 60% per sempre</p>
-                    </div>
-                    
-                    <div class="bg-dark-bg rounded-xl py-3 px-4 mb-5 flex flex-col items-center border border-gray-800 w-full shrink-0">
-                        <span data-i18n="expires_in" class="text-[10px] text-gray-400 font-semibold mb-1 uppercase tracking-widest">L'offerta scade tra:</span>
-                        <div id="flash-timer" class="text-3xl font-mono font-medium text-white flex items-center gap-1 tracking-wider">24:00:00</div>
-                    </div>
-                    
-                    <button onclick="lockPrice()" class="w-full btn-premium-gold rounded-xl py-4 text-[15px] sm:text-[16px] font-bold flex items-center justify-center gap-2 shrink-0">
-                        <i class="fa-solid fa-lock"></i> <span data-i18n="lock_price">BLOCCA PREZZO A 37 USDT</span>
-                    </button>
-                    
-                    <p class="text-[10px] text-gray-500 mt-4 shrink-0 font-medium flex items-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="no_payment">Nessun addebito immediato. Posti limitati.</span></p>
-                </div>
-            </div>
-        </div>
+        <!-- STREAMING_CHUNK:Checkout Offer Screen (Removed, directly to Payment as requested logic simplification)... -->
+        <!-- Note: Based on layout flow, going straight to payment options from partner button is cleaner. -->
 
         <!-- STREAMING_CHUNK:Payment Action Screen... -->
         <div id="screen-payment" class="screen">
-            <div class="scroll-container no-scrollbar">
+            <div class="scroll-container no-scrollbar justify-start pt-2">
                 
+                <div class="bg-gray-800/30 border border-bf-yellow/20 rounded-xl p-3 w-full mb-3 flex items-center justify-center gap-3 shrink-0 backdrop-blur-sm">
+                    <div>
+                        <p data-i18n="checkout_header" class="text-[11px] text-bf-yellow leading-snug font-bold tracking-wider uppercase text-center">Condizioni Partner Applicate</p>
+                    </div>
+                </div>
+
                 <!-- Premium Card -->
-                <div class="w-full bg-[#111827] rounded-3xl border border-[#D4AF37]/40 shadow-[0_10px_40px_rgba(212,175,55,0.15)] relative overflow-hidden flex flex-col items-center px-4 py-6 mb-4 flex-shrink-0 mt-4">
+                <div class="w-full bg-[#111827] rounded-3xl border border-[#D4AF37]/40 shadow-[0_10px_40px_rgba(212,175,55,0.15)] relative overflow-hidden flex flex-col items-center px-4 py-5 mb-4 flex-shrink-0">
                     
                     <div class="absolute -top-20 -left-20 w-48 h-48 bg-bf-yellow rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
 
-                    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-lg flex items-center gap-2 animate-pulse">
+                    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 shadow-lg flex items-center gap-2 animate-pulse">
                         <i class="fa-solid fa-fire"></i> <span data-i18n="pl_badge">POSTO RISERVATO</span>
                     </div>
                     
-                    <h2 data-i18n="pl_title" class="text-[22px] sm:text-[24px] font-black text-white uppercase text-center leading-tight mb-2 tracking-tight">IL TUO POSTO È RISERVATO!</h2>
+                    <h2 data-i18n="pl_title" class="text-[20px] font-black text-white uppercase text-center leading-tight mb-2 tracking-tight">IL TUO POSTO È RISERVATO!</h2>
                     
-                    <p data-i18n="pl_subtitle" class="text-[13px] text-gray-400 text-center mb-5 font-medium px-2">
+                    <p data-i18n="pl_subtitle" class="text-[12px] text-gray-400 text-center mb-4 font-medium px-2">
                         Completa il pagamento per sbloccare la Premium Room a tariffa bloccata:<br>
                         <span class='block mt-2 flex items-center justify-center gap-2'>
-                            <span class='text-bf-yellow font-black text-[20px]'>37 USDT/mese</span> 
+                            <span class='text-bf-yellow font-black text-[22px]'>37 USDT/mese</span> 
                             <span class='line-through text-gray-500 text-[12px]'>(invece di 97)</span>
                         </span>
                     </p>
                     
-                    <div class="w-full bg-[#070B14] border border-gray-800 rounded-2xl p-4 mb-6 shadow-inner">
-                        <ul class="space-y-3.5 text-[13px] text-gray-200 font-semibold">
+                    <div class="w-full bg-[#070B14] border border-gray-800 rounded-2xl p-3 mb-5 shadow-inner">
+                        <ul class="space-y-2.5 text-[12px] text-gray-200 font-semibold">
                             <li class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> 
+                                <div class="w-4 h-4 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[8px]"></i></div> 
                                 <span data-i18n="vp_1">Accesso Immediato alla Premium Room</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> 
+                                <div class="w-4 h-4 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[8px]"></i></div> 
                                 <span data-i18n="vp_2">Segnali Operativi ad Alta Precisione</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[10px]"></i></div> 
+                                <div class="w-4 h-4 rounded-full bg-bf-green/20 border border-bf-green/50 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.4)]"><i class="fa-solid fa-check text-bf-green text-[8px]"></i></div> 
                                 <span data-i18n="vp_3">Nessun vincolo, disdici quando vuoi</span>
                             </li>
                         </ul>
                     </div>
 
-                    <button onclick="showMockMessage()" class="w-full btn-premium-action rounded-2xl py-4 text-[16px] font-black flex items-center justify-center gap-2 cursor-pointer">
+                    <button onclick="showMockMessage()" class="w-full btn-premium-action rounded-2xl py-3.5 text-[15px] font-black flex items-center justify-center gap-2 cursor-pointer">
                         <i class="fa-solid fa-bolt text-white"></i> <span data-i18n="pay_now">SBLOCCA ACCESSO ORA</span>
                     </button>
                 </div>
 
-                <div class="w-full flex flex-col items-center flex-shrink-0 mb-4 px-1">
+                <div class="w-full flex flex-col items-center flex-shrink-0 px-1">
                     <div class="flex items-center gap-3 w-full mb-3">
                         <div class="h-px bg-gray-800 flex-1"></div>
                         <span data-i18n="new_to_crypto" class="text-[10px] text-gray-500 font-bold uppercase tracking-widest text-center">Primo pagamento in crypto?</span>
                         <div class="h-px bg-gray-800 flex-1"></div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-3 w-full">
-                        <button onclick="openTutorial('wallet')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95 cursor-pointer">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[13px] border border-gray-700 shadow-inner"><i class="fa-solid fa-1"></i></div>
+                    <div class="flex flex-col sm:flex-row gap-2.5 w-full">
+                        <button onclick="openTutorial('wallet')" class="flex-1 glass-btn hover:bg-white/5 py-2.5 px-3 rounded-xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95 cursor-pointer">
+                            <div class="w-7 h-7 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[12px] border border-gray-700 shadow-inner"><i class="fa-solid fa-1"></i></div>
                             <div>
-                                <div data-i18n="how_wallet_title" class="text-[12px] font-bold text-tg-blue">Crea il Wallet</div>
-                                <div data-i18n="how_wallet_sub" class="text-[10px] text-gray-500 mt-0.5 font-medium">Richiede 1 minuto</div>
+                                <div data-i18n="how_wallet_title" class="text-[11px] font-bold text-tg-blue">Crea il Wallet</div>
+                                <div data-i18n="how_wallet_sub" class="text-[9px] text-gray-500 mt-0.5 font-medium">Richiede 1 minuto</div>
                             </div>
                         </button>
-                        <button onclick="openTutorial('usdt')" class="flex-1 glass-btn hover:bg-white/5 py-3 px-3.5 rounded-2xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95 cursor-pointer">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[13px] border border-gray-700 shadow-inner"><i class="fa-solid fa-2"></i></div>
+                        <button onclick="openTutorial('usdt')" class="flex-1 glass-btn hover:bg-white/5 py-2.5 px-3 rounded-xl flex items-center gap-3 transition-colors text-left border border-gray-800 shadow-sm active:scale-95 cursor-pointer">
+                            <div class="w-7 h-7 rounded-full bg-gray-800 flex items-center justify-center shrink-0 text-white font-black text-[12px] border border-gray-700 shadow-inner"><i class="fa-solid fa-2"></i></div>
                             <div>
-                                <div data-i18n="how_usdt_title" class="text-[12px] font-bold text-tg-blue">Compra USDT</div>
-                                <div data-i18n="how_usdt_sub" class="text-[10px] text-gray-500 mt-0.5 font-medium">Guida passo passo</div>
+                                <div data-i18n="how_usdt_title" class="text-[11px] font-bold text-tg-blue">Compra USDT</div>
+                                <div data-i18n="how_usdt_sub" class="text-[9px] text-gray-500 mt-0.5 font-medium">Guida passo passo</div>
                             </div>
                         </button>
                     </div>
 
                     <!-- TRUST BADGE CRYPTO -->
-                    <div class="mt-4 w-full bg-blue-900/10 border border-blue-500/20 rounded-xl p-3 flex gap-3 items-start shrink-0 backdrop-blur-sm">
-                        <i class="fa-solid fa-link text-blue-400 mt-0.5 text-sm shrink-0"></i>
-                        <p data-i18n="trust_crypto" class="text-[10px] text-gray-400 leading-relaxed font-medium">
+                    <div class="mt-3 w-full bg-blue-900/10 border border-blue-500/20 rounded-xl p-2.5 flex gap-3 items-start shrink-0 backdrop-blur-sm">
+                        <i class="fa-solid fa-link text-blue-400 mt-0.5 text-[11px] shrink-0"></i>
+                        <p data-i18n="trust_crypto" class="text-[9px] text-gray-400 leading-relaxed font-medium">
                             Infrastruttura di pagamento su Blockchain. Transazioni trasparenti, sicure e svincolate da intermediari bancari.
                         </p>
                     </div>
 
-                    <button onclick="openSecurityModal()" class="mt-5 text-gray-400 hover:text-white transition-colors text-[11px] flex items-center gap-2 font-medium cursor-pointer">
+                    <button onclick="openSecurityModal()" class="mt-4 text-gray-400 hover:text-white transition-colors text-[10px] flex items-center gap-2 font-medium cursor-pointer">
                         <i class="fa-solid fa-shield-halved opacity-70"></i> <span data-i18n="sec_btn" class="underline underline-offset-4">Cos'è il Gas (TON), USDT e la Sicurezza?</span>
+                    </button>
+                    
+                    <button onclick="showScreen('screen-lang')" class="mt-6 text-gray-600 hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold cursor-pointer">
+                        <i class="fa-solid fa-arrow-left"></i> <span data-i18n="back_home">TORNA ALLA HOME</span>
                     </button>
                 </div>
 
@@ -762,65 +727,34 @@
 
     <!-- STREAMING_CHUNK:Mock Modal for "SBLOCCA ACCESSO ORA"... -->
     <div id="mock-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-        <div class="bg-panel-bg border border-gray-700 rounded-3xl p-6 w-full max-w-sm text-center shadow-[0_15px_50px_rgba(0,0,0,0.6)] modal-enter relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-600 to-blue-400"></div>
-            
-            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto mb-4 border border-blue-500/20">
-                <i class="fa-solid fa-info-circle text-xl"></i>
-            </div>
-            
-            <p id="mock-text" class="text-[15px] font-medium mb-6 text-gray-200 leading-snug"></p>
-            
-            <a href="https://www.bettingexchangeroom.com" target="_blank" class="w-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#1e40af] hover:to-[#60a5fa] text-white py-3.5 rounded-xl font-bold text-[14px] flex items-center justify-center gap-2 transition-all shadow-[0_5px_15px_rgba(59,130,246,0.3)] mb-3 active:scale-95 cursor-pointer">
-                <i class="fa-solid fa-globe"></i> <span data-i18n="mock_discount_btn">SITO UFFICIALE</span>
-            </a>
-            
-            <button onclick="closeMockModal()" class="text-gray-500 hover:text-white transition-colors text-[12px] font-medium underline underline-offset-4 p-2 cursor-pointer"><span data-i18n="close">Chiudi</span></button>
-        </div>
-    </div>
-
-    <!-- STREAMING_CHUNK:Wall Modal... -->
-    <div id="partner-wall-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden items-center justify-center z-50 p-4">
         <div class="bg-panel-bg border border-red-500/30 rounded-3xl p-6 w-full max-w-sm text-center shadow-[0_15px_50px_rgba(239,68,68,0.15)] modal-enter relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-red-600 to-red-400"></div>
             
-            <img src="1000388668.png" onerror="this.src='https://ui-avatars.com/api/?name=Wall&background=EF4444&color=fff&rounded=true'" alt="Wall Shield" class="w-20 h-20 mx-auto mb-4 object-contain">
-            
-            <h2 data-i18n="wall_title" class="text-[18px] font-black mb-3 text-white tracking-tight">ACCESSO AGEVOLATO NEGATO 🛡️</h2>
-            
-            <p data-i18n="wall_main_text" class="text-[13px] font-medium mb-5 text-gray-300 leading-relaxed px-1">
-                Questa tariffa è un'esclusiva riservata alla nostra rete di partner autorizzati. Richiedi al tuo referente il link di invito ufficiale per procedere al pagamento (in USDT) con la tariffa agevolata applicata.
-            </p>
-            
-            <div class="bg-gray-800/50 rounded-xl p-3 mb-5 border border-gray-700 shadow-inner">
-                <p data-i18n="wall_sub_text" class="text-[11px] text-gray-400 leading-snug">
-                    In assenza di un referente, puoi proseguire l'iscrizione sul sito pubblico accettando la tariffa di listino (97 USDT).
-                </p>
+            <div class="w-16 h-16 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center mx-auto mb-4 border border-red-500/20">
+                <i class="fa-solid fa-lock text-2xl"></i>
             </div>
             
+            <h2 data-i18n="mock_title" class="text-[16px] font-bold text-white mb-4 tracking-wide uppercase">Accesso Riservato</h2>
+            
+            <p id="mock-text" class="text-[13px] font-medium mb-6 text-gray-200 leading-relaxed"></p>
+            
             <a href="https://www.bettingexchangeroom.com" target="_blank" class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3.5 rounded-xl font-bold text-[13px] flex items-center justify-center gap-2 transition-all border border-gray-600 active:scale-95 cursor-pointer">
-                <i class="fa-solid fa-globe"></i> <span data-i18n="wall_btn">VAI AL SITO PUBBLICO</span>
+                <i class="fa-solid fa-globe"></i> <span data-i18n="mock_discount_btn">VAI AL SITO PUBBLICO UFFICIALE</span>
             </a>
             
-            <button onclick="closeWallModal()" class="mt-4 text-gray-500 hover:text-white transition-colors text-[12px] font-medium underline underline-offset-4 p-2 cursor-pointer"><span data-i18n="close">Chiudi</span></button>
+            <button onclick="closeMockModal()" class="mt-4 text-gray-500 hover:text-white transition-colors text-[12px] font-medium underline underline-offset-4 p-2 cursor-pointer"><span data-i18n="close">Chiudi</span></button>
         </div>
     </div>
 
     <!-- STREAMING_CHUNK:Javascript Logic and Full Translations... -->
     <script>
-        let hasPartnerTracking = true; 
-
         const translations = {
             en: {
-                box1_desc: "Access the first lesson of the ZERO to HERO Academy and join the free Telegram room to test the accuracy of our signals.",
+                box1_desc: "Unlock free access to the Academy's first lesson and our Telegram signals room.",
                 box1_cta: "START FREE TRIAL",
-                box2_desc: "The system has detected an invitation from one of our Partners. Use your status to unlock the 'Zero to Hero' Academy and Premium Room at the discounted rate. (⚠️ Access via the public site requires full payment).",
+                box2_desc: "Partner invitation verified. Unlock the full Academy and Premium Room at your reserved discounted rate.",
                 box2_cta: "UNLOCK PARTNER RATE",
-                checkout_header: "Corporate Network Validated: Partner Conditions Applied.",
-                wall_title: "DISCOUNTED ACCESS DENIED 🛡️",
-                wall_main_text: "This rate is exclusively reserved for our network of authorized partners. Ask your referrer for the official invitation link to proceed with the payment (in USDT) with the discounted rate applied.",
-                wall_sub_text: "Without a referrer, you can continue registration on the public site by accepting the list price (97 USDT).",
-                wall_btn: "GO TO PUBLIC SITE",
+                checkout_header: "Partner Conditions Applied",
                 trust_crypto: "Blockchain payment infrastructure. Transparent, secure transactions independent of banking intermediaries.",
                 
                 or_separator: "OR",
@@ -834,13 +768,16 @@
                 no_payment: "No immediate charge. Limited spots.",
                 pl_badge: "SPOT RESERVED",
                 pl_title: "YOUR SPOT IS RESERVED!",
-                pl_subtitle: "Complete payment to unlock the Premium Room at the locked rate:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mo</span> <span class='line-through text-gray-500 text-[12px]'>(instead of 97)</span></span>",
+                pl_subtitle: "Complete payment to unlock the Premium Room at the locked rate:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[22px]'>37 USDT/mo</span> <span class='line-through text-gray-500 text-[12px]'>(instead of 97)</span></span>",
                 vp_1: "Instant Access to the Premium Room",
                 vp_2: "High-Precision Trading Signals",
                 vp_3: "No lock-in contract, cancel anytime",
                 pay_now: "UNLOCK ACCESS NOW",
-                mock_discount_text: "ASK YOUR REFERRER FOR THE DISCOUNT LINK<br>or visit the website",
-                mock_discount_btn: "OFFICIAL WEBSITE",
+                
+                mock_title: "Restricted Access",
+                mock_discount_text: "This exclusivity is reserved for our authorized partner network.<br><br>Ask your referrer for the official link to proceed with payment at the discounted rate.<br><br><span class='text-[11px] text-gray-400 font-normal leading-tight block mt-2'>Without a referrer, you can continue on the official public site accepting the list price (97 USDT).</span>",
+                mock_discount_btn: "GO TO OFFICIAL PUBLIC SITE",
+                
                 new_to_crypto: "First crypto payment?",
                 how_wallet_title: "Create Wallet",
                 how_wallet_sub: "Takes 1 minute",
@@ -849,6 +786,7 @@
                 sec_btn: "What is Gas (TON), USDT & Security?",
                 close_tut: "Close Tutorial",
                 close: "Close",
+                back_home: "BACK TO HOME",
 
                 sec_title: "Security Info",
                 sec_lock_title: "Global Web 3.0 Payments",
@@ -916,15 +854,11 @@
                 tut_badge: "TUTORIAL - NOT OPERATIONAL"
             },
             it: {
-                box1_desc: "Accedi alla prima lezione della ZERO to HERO Academy e entra nella sala Telegram gratuita per testare l'accuratezza dei nostri segnali.",
+                box1_desc: "Sblocca l'accesso gratuito alla prima lezione dell'Academy e alla sala segnali Telegram.",
                 box1_cta: "INIZIA LA PROVA GRATUITA",
-                box2_desc: "Il sistema ha rilevato l'invito di un nostro Partner. Sfrutta il tuo status per sbloccare l'Academy 'Zero to Hero' e la Premium Room applicando la tariffa agevolata. (⚠️ L'accesso tramite sito pubblico richiede il pagamento completo).",
+                box2_desc: "Invito Partner verificato. Sblocca l'Academy completa e la Premium Room alla tariffa riservata.",
                 box2_cta: "SBLOCCA TARIFFA PARTNER",
-                checkout_header: "Rete Aziendale Convalidata: Condizioni Partner Applicate.",
-                wall_title: "ACCESSO AGEVOLATO NEGATO 🛡️",
-                wall_main_text: "Questa tariffa è un'esclusiva riservata alla nostra rete di partner autorizzati. Richiedi al tuo referente il link di invito ufficiale per procedere al pagamento (in USDT) con la tariffa agevolata applicata.",
-                wall_sub_text: "In assenza di un referente, puoi proseguire l'iscrizione sul sito pubblico accettando la tariffa di listino (97 USDT).",
-                wall_btn: "VAI AL SITO PUBBLICO",
+                checkout_header: "Condizioni Partner Applicate",
                 trust_crypto: "Infrastruttura di pagamento su Blockchain. Transazioni trasparenti, sicure e svincolate da intermediari bancari.",
 
                 or_separator: "OPPURE",
@@ -938,13 +872,16 @@
                 no_payment: "Nessun addebito immediato. Posti limitati.",
                 pl_badge: "POSTO RISERVATO",
                 pl_title: "IL TUO POSTO È RISERVATO!",
-                pl_subtitle: "Completa il pagamento per sbloccare la Premium Room a tariffa bloccata:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mese</span> <span class='line-through text-gray-500 text-[12px]'>(invece di 97)</span></span>",
+                pl_subtitle: "Completa il pagamento per sbloccare la Premium Room a tariffa bloccata:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[22px]'>37 USDT/mese</span> <span class='line-through text-gray-500 text-[12px]'>(invece di 97)</span></span>",
                 vp_1: "Accesso Immediato alla Premium Room",
                 vp_2: "Segnali Operativi ad Alta Precisione",
                 vp_3: "Nessun vincolo, disdici quando vuoi",
                 pay_now: "SBLOCCA ACCESSO ORA",
-                mock_discount_text: "CHIEDI IL LINK SCONTO AL TUO REFERENTE<br>o vai sul sito",
-                mock_discount_btn: "SITO UFFICIALE",
+                
+                mock_title: "Accesso Riservato",
+                mock_discount_text: "Questa esclusiva è riservata alla nostra rete di partner autorizzati.<br><br>Richiedi al tuo referente il link ufficiale per procedere al pagamento alla tariffa agevolata.<br><br><span class='text-[11px] text-gray-400 font-normal leading-tight block mt-2'>In assenza di un referente, puoi proseguire sul sito pubblico ufficiale accettando la tariffa di listino (97 USDT).</span>",
+                mock_discount_btn: "VAI AL SITO PUBBLICO UFFICIALE",
+                
                 new_to_crypto: "Primo pagamento in crypto?",
                 how_wallet_title: "Crea il Wallet",
                 how_wallet_sub: "Richiede 1 minuto",
@@ -953,6 +890,7 @@
                 sec_btn: "Cos'è il Gas (TON), USDT e la Sicurezza?",
                 close_tut: "Chiudi Tutorial",
                 close: "Chiudi",
+                back_home: "TORNA ALLA HOME",
 
                 sec_title: "Info Sicurezza",
                 sec_lock_title: "Pagamenti Globali Web 3.0",
@@ -1020,15 +958,11 @@
                 tut_badge: "Tutorial - Simulazione non operativa"
             },
             es: {
-                box1_desc: "Accede a la primera lección de la ZERO to HERO Academy y entra en la sala de Telegram gratuita para probar la precisión de nuestras señales.",
+                box1_desc: "Desbloquea el acceso gratuito a la primera lección de la Academy y a la sala de señales de Telegram.",
                 box1_cta: "INICIA LA PRUEBA GRATUITA",
-                box2_desc: "El sistema ha detectado la invitación de uno de nuestros Partners. Aprovecha tu estado para desbloquear la 'Zero to Hero' Academy y la Premium Room aplicando la tarifa con descuento. (⚠️ El acceso a través del sitio público requiere el pago completo).",
+                box2_desc: "Invitación de Partner verificada. Desbloquea la Academy completa y la Premium Room con tu tarifa reservada.",
                 box2_cta: "DESBLOQUEAR TARIFA PARTNER",
-                checkout_header: "Red Corporativa Validada: Condiciones de Partner Aplicadas.",
-                wall_title: "ACCESO CON DESCUENTO DENEGADO 🛡️",
-                wall_main_text: "Esta tarifa es una exclusiva reservada a nuestra red de socios autorizados. Solicita a tu referente el enlace de invitación oficial para proceder con el pago (en USDT) con la tarifa con descuento aplicada.",
-                wall_sub_text: "En ausencia de un referente, puedes continuar el registro en el sitio público aceptando la tarifa de lista (97 USDT).",
-                wall_btn: "IR AL SITIO PÚBLICO",
+                checkout_header: "Condiciones de Partner Aplicadas",
                 trust_crypto: "Infraestructura de pago en Blockchain. Transacciones transparentes, seguras e independientes de intermediarios bancarios.",
 
                 or_separator: "O",
@@ -1042,13 +976,16 @@
                 no_payment: "Sin cargo inmediato. Cupos limitados.",
                 pl_badge: "CUPO RESERVADO",
                 pl_title: "¡TU CUPO ESTÁ RESERVADO!",
-                pl_subtitle: "Completa el pago para desbloquear la Premium Room a tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mes</span> <span class='line-through text-gray-500 text-[12px]'>(en lugar de 97)</span></span>",
+                pl_subtitle: "Completa el pago para desbloquear la Premium Room a tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[22px]'>37 USDT/mes</span> <span class='line-through text-gray-500 text-[12px]'>(en lugar de 97)</span></span>",
                 vp_1: "Acceso inmediato a la Premium Room",
                 vp_2: "Señales de Trading de Alta Precisión",
                 vp_3: "Sin permanencia, cancela cuando quieras",
                 pay_now: "DESBLOQUEAR ACCESO AHORA",
-                mock_discount_text: "PIDE EL ENLACE DE DESCUENTO A TU REFERENTE<br>o ve al sitio",
-                mock_discount_btn: "SITIO OFICIAL",
+                
+                mock_title: "Acceso Restringido",
+                mock_discount_text: "Esta exclusividad está reservada para nuestra red de socios autorizados.<br><br>Pide a tu referente el enlace oficial para proceder al pago con la tarifa reducida.<br><br><span class='text-[11px] text-gray-400 font-normal leading-tight block mt-2'>Si no tienes un referente, puedes continuar en el sitio público oficial aceptando el precio de lista (97 USDT).</span>",
+                mock_discount_btn: "IR AL SITIO PÚBLICO OFICIAL",
+                
                 new_to_crypto: "¿Primer pago en cripto?",
                 how_wallet_title: "Crea tu Wallet",
                 how_wallet_sub: "Toma 1 minuto",
@@ -1057,6 +994,7 @@
                 sec_btn: "¿Qué es Gas (TON), USDT y Seguridad?",
                 close_tut: "Cerrar Tutorial",
                 close: "Cerrar",
+                back_home: "VOLVER AL INICIO",
 
                 sec_title: "Info de Seguridad",
                 sec_lock_title: "Pagos Globales Web 3.0",
@@ -1124,15 +1062,11 @@
                 tut_badge: "TUTORIAL - NO OPERATIVO"
             },
             br: {
-                box1_desc: "Acesse a primeira lição da ZERO to HERO Academy e entre na sala do Telegram gratuita para testar a precisão de nossos sinais.",
+                box1_desc: "Desbloqueie o acesso gratuito à primeira lição da Academy e à sala de sinais do Telegram.",
                 box1_cta: "INICIAR TESTE GRATUITO",
-                box2_desc: "O sistema detectou o convite de um de nossos Parceiros. Use seu status para desbloquear a 'Zero to Hero' Academy e a Premium Room aplicando a tarifa com desconto. (⚠️ O acesso pelo site público exige pagamento integral).",
+                box2_desc: "Convite de Parceiro verificado. Desbloqueie a Academy completa e a Premium Room com sua tarifa reservada.",
                 box2_cta: "DESBLOQUEAR TARIFA PARCEIRO",
-                checkout_header: "Rede Corporativa Validada: Condições de Parceiro Aplicadas.",
-                wall_title: "ACESSO COM DESCONTO NEGADO 🛡️",
-                wall_main_text: "Esta tarifa é exclusiva para nossa rede de parceiros autorizados. Peça ao seu referente o link de convite oficial para prosseguir com o pagamento (em USDT) com a tarifa com desconto aplicada.",
-                wall_sub_text: "Na ausência de um referente, você pode continuar o registro no site público aceitando o preço de tabela (97 USDT).",
-                wall_btn: "IR PARA O SITE PÚBLICO",
+                checkout_header: "Condições de Parceiro Aplicadas",
                 trust_crypto: "Infraestrutura de pagamento em Blockchain. Transações transparentes, seguras e independentes de intermediários bancários.",
 
                 or_separator: "OU",
@@ -1146,13 +1080,16 @@
                 no_payment: "Sem cobrança imediata. Vagas limitadas.",
                 pl_badge: "VAGA RESERVADA",
                 pl_title: "SUA VAGA ESTÁ RESERVADA!",
-                pl_subtitle: "Conclua o pagamento para desbloquear a Premium Room com tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[20px]'>37 USDT/mês</span> <span class='line-through text-gray-500 text-[12px]'>(em vez de 97)</span></span>",
+                pl_subtitle: "Conclua o pagamento para desbloquear a Premium Room com tarifa bloqueada:<br><span class='block mt-2 flex items-center justify-center gap-2'><span class='text-bf-yellow font-black text-[22px]'>37 USDT/mês</span> <span class='line-through text-gray-500 text-[12px]'>(em vez de 97)</span></span>",
                 vp_1: "Acesso Imediato à Premium Room",
                 vp_2: "Sinais de Trading de Alta Precisão",
                 vp_3: "Sem fidelidade, cancele quando quiser",
                 pay_now: "DESBLOQUEAR ACESSO AGORA",
-                mock_discount_text: "PEÇA O LINK DE DESCONTO AO SEU REFERENTE<br>ou acesse o site",
-                mock_discount_btn: "SITE OFICIAL",
+                
+                mock_title: "Acesso Restrito",
+                mock_discount_text: "Esta exclusividade é reservada à nossa rede de parceiros autorizados.<br><br>Peça ao seu referente o link oficial para prosseguir com o pagamento com a tarifa reduzida.<br><br><span class='text-[11px] text-gray-400 font-normal leading-tight block mt-2'>Na ausência de um referente, você pode continuar no site público oficial aceitando o preço de tabela (97 USDT).</span>",
+                mock_discount_btn: "IR PARA O SITE PÚBLICO OFICIAL",
+                
                 new_to_crypto: "Primeiro pagamento em cripto?",
                 how_wallet_title: "Crie a Carteira",
                 how_wallet_sub: "Leva 1 minuto",
@@ -1161,6 +1098,7 @@
                 sec_btn: "O que é Gas (TON), USDT e Segurança?",
                 close_tut: "Fechar Tutorial",
                 close: "Fechar",
+                back_home: "VOLTAR AO INÍCIO",
 
                 sec_title: "Info de Segurança",
                 sec_lock_title: "Pagamentos Globais Web 3.0",
@@ -1238,7 +1176,6 @@
                     el.innerHTML = translations[currentLang][key];
                 }
             });
-            // Update tutorial strings if a tutorial is open
             if(document.getElementById('screen-tutorial-wallet').classList.contains('active')) updateTutorialUI('wallet');
             if(document.getElementById('screen-tutorial-usdt').classList.contains('active')) updateTutorialUI('usdt');
         }
@@ -1256,32 +1193,11 @@
             }
         }
 
-        // --- CORE LOGIC ---
-        
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
-        }
-
-        function togglePartnerSimulation() {
-            hasPartnerTracking = !hasPartnerTracking;
-            const btn = document.getElementById('sim-toggle-btn');
-            if(hasPartnerTracking) {
-                btn.textContent = "ON (Checkout)";
-                btn.className = "bg-green-500/20 border border-green-500/50 text-green-400 text-[9px] px-2 py-0.5 rounded-full font-bold";
-            } else {
-                btn.textContent = "OFF (Muro Pop-up)";
-                btn.className = "bg-red-500/20 border border-red-500/50 text-red-400 text-[9px] px-2 py-0.5 rounded-full font-bold";
-            }
-        }
-
-        function handlePartnerClick() {
-            if(hasPartnerTracking) {
-                showScreen('screen-offer');
-                startFlashTimer(24 * 60 * 60);
-            } else {
-                showWallModal();
-            }
+            // Scroll to top when changing screens
+            document.querySelectorAll('.scroll-container').forEach(c => c.scrollTop = 0);
         }
 
         function lockPrice() {
@@ -1296,16 +1212,6 @@
         function closeSecurityModal() {
             document.getElementById('security-modal').classList.add('hidden');
             document.getElementById('security-modal').classList.remove('flex');
-        }
-
-        function showWallModal() {
-            document.getElementById('partner-wall-modal').classList.remove('hidden');
-            document.getElementById('partner-wall-modal').classList.add('flex');
-        }
-
-        function closeWallModal() {
-            document.getElementById('partner-wall-modal').classList.add('hidden');
-            document.getElementById('partner-wall-modal').classList.remove('flex');
         }
 
         // MOCK MODAL per finto pagamento
@@ -1391,33 +1297,8 @@
             }
         }
 
-        let flashTimerInterval = null;
-
-        function startFlashTimer(duration) {
-            clearInterval(flashTimerInterval);
-            let timer = duration, hours, minutes, seconds;
-            const display = document.getElementById('flash-timer');
-            flashTimerInterval = setInterval(function () {
-                hours = parseInt(timer / 3600, 10);
-                minutes = parseInt((timer % 3600) / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                display.textContent = hours + ":" + minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    timer = 0; 
-                    clearInterval(flashTimerInterval); 
-                    display.classList.add('text-red-500');
-                }
-            }, 1000);
-        }
-
-        // Initialize language
         setLanguage('it');
     </script>
 </body>
 </html>
+```eof
