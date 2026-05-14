@@ -172,8 +172,8 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .flag-icon { transition: all 0.3s ease; filter: grayscale(50%) brightness(0.6); border: 1px solid transparent; }
-        .lang-btn.active .flag-icon { filter: grayscale(0%) brightness(1); transform: scale(1.15); border-color: #D4AF37; box-shadow: 0 0 10px rgba(212,175,55,0.4); }
+        .flag-icon { transition: all 0.3s ease; filter: grayscale(50%) brightness(0.6); border: 1.5px solid transparent; }
+        .lang-btn.active .flag-icon { filter: grayscale(0%) brightness(1); transform: scale(1.2); border-color: #D4AF37; box-shadow: 0 0 12px rgba(212,175,55,0.5); }
         .lang-btn:hover .flag-icon:not(.active) { filter: grayscale(20%) brightness(0.9); transform: scale(1.05); }
 
         .sim-phone { flex: none; height: 380px; width: 100%; max-width: 240px; background-color: #000; border-radius: 2rem; border: 4px solid #1F2937; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 0 0 1px #374151; position: relative; overflow: hidden; display: flex; flex-direction: column; margin: 0 auto; }
@@ -206,39 +206,39 @@
                 <div class="content-wrapper">
                     
                     <!-- Language Selection -->
-                    <nav class="flex items-center justify-center gap-4 mb-6 mx-auto w-max shrink-0 bg-gray-900/40 p-2.5 rounded-2xl border border-gray-800/50 backdrop-blur-sm">
-                        <button onclick="setLanguage('en')" id="lang-en" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w80/gb.png" class="flag-icon w-[32px] h-[24px] rounded-[4px] object-cover" alt="EN"></button>
-                        <button onclick="setLanguage('it')" id="lang-it" class="lang-btn active outline-none cursor-pointer"><img src="https://flagcdn.com/w80/it.png" class="flag-icon w-[32px] h-[24px] rounded-[4px] object-cover" alt="IT"></button>
-                        <button onclick="setLanguage('es')" id="lang-es" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w80/es.png" class="flag-icon w-[32px] h-[24px] rounded-[4px] object-cover" alt="ES"></button>
-                        <button onclick="setLanguage('br')" id="lang-br" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w80/br.png" class="flag-icon w-[32px] h-[24px] rounded-[4px] object-cover" alt="PT"></button>
+                    <nav class="flex items-center justify-center gap-3 mb-4 mx-auto w-max shrink-0 bg-gray-900/50 py-2 px-3.5 rounded-[1.25rem] border border-gray-800/60 backdrop-blur-md shadow-inner">
+                        <button onclick="setLanguage('en')" id="lang-en" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w160/gb.png" class="flag-icon w-[24px] h-[24px] rounded-full object-cover" alt="EN"></button>
+                        <button onclick="setLanguage('it')" id="lang-it" class="lang-btn active outline-none cursor-pointer"><img src="https://flagcdn.com/w160/it.png" class="flag-icon w-[24px] h-[24px] rounded-full object-cover" alt="IT"></button>
+                        <button onclick="setLanguage('es')" id="lang-es" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w160/es.png" class="flag-icon w-[24px] h-[24px] rounded-full object-cover" alt="ES"></button>
+                        <button onclick="setLanguage('br')" id="lang-br" class="lang-btn outline-none cursor-pointer"><img src="https://flagcdn.com/w160/br.png" class="flag-icon w-[24px] h-[24px] rounded-full object-cover" alt="PT"></button>
                     </nav>
 
                     <!-- Panels Box -->
-                    <div class="w-full luxury-panel flex flex-col gap-5 p-6 relative shrink-0">
+                    <div class="w-full luxury-panel flex flex-col gap-4 p-5 relative shrink-0">
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-bf-yellow/5 rounded-full blur-[70px] pointer-events-none z-0"></div>
 
                         <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" class="btn-luxury btn-silver-lux group">
-                            <div class="icon-wrap text-[32px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"><i class="fa-solid fa-rocket"></i></div>
-                            <span data-i18n="box1_desc" class="font-medium text-[12px] leading-relaxed tracking-wide text-gray-300 px-1">
+                            <div class="icon-wrap text-[28px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"><i class="fa-solid fa-rocket"></i></div>
+                            <span data-i18n="box1_desc" class="font-medium text-[11.5px] leading-relaxed tracking-wide text-gray-300 px-1">
                                 Sblocca l'accesso gratuito alla prima lezione dell'Academy e alla sala segnali Telegram.
                             </span>
-                            <div data-i18n="box1_cta" class="mt-1 w-full bg-blue-500/10 border border-blue-500/30 py-3 px-3 rounded-xl text-[11px] font-bold tracking-widest text-blue-400 transition-colors group-hover:bg-blue-500/20 uppercase">
+                            <div data-i18n="box1_cta" class="mt-1 w-full bg-blue-500/10 border border-blue-500/30 py-2.5 px-3 rounded-xl text-[10.5px] font-bold tracking-widest text-blue-400 transition-colors group-hover:bg-blue-500/20 uppercase">
                                 INIZIA LA PROVA GRATUITA
                             </div>
                         </a>
 
-                        <div class="flex items-center gap-3 opacity-40 relative z-10 w-full px-2 my-1">
+                        <div class="flex items-center gap-3 opacity-40 relative z-10 w-full px-2 my-0">
                             <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-gray-400"></div>
                             <span data-i18n="or_separator" class="text-[9px] font-light uppercase tracking-[0.3em] text-gray-300">OPPURE</span>
                             <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-gray-400"></div>
                         </div>
 
                         <button onclick="goToOffer()" class="btn-luxury btn-gold-lux breath-premium group cursor-pointer">
-                            <div class="icon-wrap text-[32px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"><i class="fa-solid fa-crown"></i></div>
-                            <span data-i18n="box2_desc" class="font-medium text-[12px] leading-relaxed tracking-wide text-[#FDF0D5] text-center px-1">
+                            <div class="icon-wrap text-[28px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"><i class="fa-solid fa-crown"></i></div>
+                            <span data-i18n="box2_desc" class="font-medium text-[11.5px] leading-relaxed tracking-wide text-[#FDF0D5] text-center px-1">
                                 Invito Partner verificato. Sblocca l'Academy completa e la Premium Room alla tariffa riservata.
                             </span>
-                            <div data-i18n="box2_cta" class="mt-1 w-full bg-bf-yellow/10 border border-bf-yellow/40 py-3 px-3 rounded-xl text-[11px] font-black tracking-widest text-bf-yellow transition-colors group-hover:bg-bf-yellow/20 uppercase shadow-[0_0_15px_rgba(212,175,55,0.15)] text-center">
+                            <div data-i18n="box2_cta" class="mt-1 w-full bg-bf-yellow/10 border border-bf-yellow/40 py-2.5 px-3 rounded-xl text-[10.5px] font-black tracking-widest text-bf-yellow transition-colors group-hover:bg-bf-yellow/20 uppercase shadow-[0_0_15px_rgba(212,175,55,0.15)] text-center">
                                 SBLOCCA TARIFFA PARTNER
                             </div>
                         </button>
